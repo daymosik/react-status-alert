@@ -1,4 +1,44 @@
 {
   "name": "@daymosik/react-status-alert",
-  "version": "0.0.2"
+  "version": "0.0.9",
+  "description": "Status alert component for React",
+  "keywords": [
+    "react-component",
+    "react",
+    "component",
+    "status-alert",
+    "status",
+    "alert"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run tsc & npm run copy",
+    "tsc": "tsc",
+    "copy": "cp lib/status-alert.css dist/",
+    "lint": "tslint -p . -t codeFrame",
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "@types/react": "^16.7.18",
+    "@types/uuid": "^3.4.4",
+    "jest": "^23.6.0",
+    "react": "^16.7.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2",
+    "uuid": "^3.3.2"
+  },
+  "author": "Damian Majsner <d.majsner@gmail.com>",
+  "license": "MIT",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "lib/**/*.{ts,tsx}",
+      "!**/node_modules/**"
+    ]
+  }
 }

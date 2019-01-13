@@ -1,0 +1,155 @@
+.flashing-notifications-wrapper {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    height: 0px;
+}
+
+.flashing-notification {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    max-height: 600px;
+    max-width: 780px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 14px;
+    padding-left: 14px;
+    -webkit-transition: opacity 800ms ease, max-height 800ms ease-out, -webkit-transform 500ms ease-out;
+    transition: opacity 800ms ease, max-height 800ms ease-out, -webkit-transform 500ms ease-out;
+    transition: transform 500ms ease-out, opacity 800ms ease, max-height 800ms ease-out;
+    transition: transform 500ms ease-out, opacity 800ms ease, max-height 800ms ease-out, -webkit-transform 500ms ease-out;
+}
+
+.flashing-notification.is-transparent {
+    max-height: 0px;
+    opacity: 0;
+    -webkit-transform: translate(0px, -100%);
+    -ms-transform: translate(0px, -100%);
+    transform: translate(0px, -100%);
+}
+
+.flashing-notification.is-transparent.is-hidden {
+    display: none;
+}
+
+.flashing-notification__box {
+    position: relative;
+    display: block;
+    min-height: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 14px 60px 17px 46px;
+    border-radius: 5px;
+    background-color: #464c55;
+    box-shadow: 0 15px 65px -9px rgba(46, 51, 58, .85);
+    color: #fff;
+}
+
+.flashing-notification__box.is-green-success {
+    background-color: #107c2e;
+}
+
+.flashing-notification__box.is-red-error {
+    background-color: #ff3b20;
+}
+
+.flashing-notification__icon-holder {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 40px;
+    height: 19px;
+    padding-top: 10px;
+    padding-left: 11px;
+}
+
+.flashing-notification__text {
+    font-size: 14px;
+}
+
+.flashing-notification__icon {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}
+
+.flashing-notification__icon.is-info-icon {
+    background-image: url("https://uploads-ssl.webflow.com/5a65e0525e467c0001498b00/5a65e0525e467c0001498b67_icon-info-01.svg");
+    background-position: 50% 50%;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.flashing-notification__icon.is-close-icon {
+    border-radius: 50%;
+    background-image: url("https://uploads-ssl.webflow.com/5a65e0525e467c0001498b00/5a65e0525e467c0001498b62_icon-02.svg");
+    background-position: 50% 50%;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.flashing-notification__icon.is-close-icon:hover {
+    background-color: hsla(0, 0%, 100%, .15);
+}
+
+.flashing-notification__icon.is-close-icon:active {
+    background-color: rgba(0, 0, 0, .35);
+}
+
+.flashing-notification__icon.is-check {
+    background-image: url("https://uploads-ssl.webflow.com/5a65e0525e467c0001498b00/5a65e0525e467c0001498b65_icon-03.svg");
+    background-position: 50% 50%;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.flashing-notification__icon.is-error {
+    background-image: url("https://uploads-ssl.webflow.com/5a65e0525e467c0001498b00/5a65e0525e467c0001498b66_icon-04.svg");
+    background-position: 50% 50%;
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+.flashing-notification__icon-on-right-holder {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 34px;
+    height: 19px;
+    padding-top: 10px;
+}
+
+.flashing-notification__padding-wrapper {
+    padding-top: 16px;
+}
+
+.font-icon.flashing-notification__icon-span {
+    font-size: 20px;
+}
+
+.font-icon.flashing-notification__icon-span-copy {
+    font-size: 20px;
+}
+
+.font-icon.flashing-notification__close-icon {
+    top: -4px;
+    width: 24px;
+    height: 24px;
+    padding-top: 4px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.font-icon.flashing-notification__close-icon:hover {
+    background-color: hsla(0, 0%, 100%, .15);
+}
+
+.font-icon.flashing-notification__close-icon:active {
+    background-color: rgba(0, 0, 0, .27);
+}
