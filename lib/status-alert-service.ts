@@ -10,4 +10,10 @@ export const StatusAlertService = {
       payload: { id, message },
     })
   },
+  removeAlert(alertId: string): void {
+    statusAlertStore.dispatch({
+      type: StoreActionTypes.RemoveAlert,
+      payload: alertId,
+    })
+  },
 }

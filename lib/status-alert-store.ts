@@ -18,7 +18,7 @@ export interface StoreAddAlertAction {
 
 export interface StoreRemoveAlertAction {
   type: StoreActionTypes.RemoveAlert
-  payload: Alert
+  payload: string
 }
 
 export interface StoreRemoveAllAlertsAction {
@@ -55,7 +55,7 @@ const statusAlertReducer = (state: StoreState = [], action: StoreAction): StoreS
     case StoreActionTypes.AddAlert:
       return [...state, action.payload]
     case StoreActionTypes.RemoveAlert:
-      let elemToRemoveArray = state.filter(item => item.id === action.payload.id)
+      let elemToRemoveArray = state.filter(item => item.id === action.payload)
       if (Array.isArray(elemToRemoveArray)) {
         let elemToRemoveIndex = state.indexOf(elemToRemoveArray[0])
         return [...state.slice(0, elemToRemoveIndex), ...state.slice(elemToRemoveIndex + 1)]

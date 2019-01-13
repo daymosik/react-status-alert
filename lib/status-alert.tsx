@@ -30,8 +30,6 @@ export class StatusAlert extends React.Component<{}, StatusAlertState> {
   }
 
   public render() {
-    return (
-      <StatusAlertContainer alerts={this.state.alerts}/>
-    )
+    return <StatusAlertContainer alerts={this.state.alerts}/>
   }
 }
