@@ -9,16 +9,16 @@ export interface StatusAlertItemProps {
 export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {}> {
   public render() {
     return (
-      <div className="flashing-notification">
-        <div className="flashing-notification__padding-wrapper">
-          <div className="flashing-notification__box is-green-success">
-            <div className="flashing-notification__icon-on-right-holder">
-              <div className="flashing-notification__icon is-close-icon" onClick={this.removeAlert}/>
+      <div className="status-alert">
+        <div className="status-alert__padding-wrapper">
+          <div className="status-alert__box is-green-success">
+            <div className="status-alert__icon-on-right-holder">
+              <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
             </div>
-            <div className="flashing-notification__icon-holder">
-              <div className="flashing-notification__icon is-check"/>
+            <div className="status-alert__icon-holder">
+              <div className="status-alert__icon is-check"/>
             </div>
-            <div className="flashing-notification__text">{this.props.alert.message}</div>
+            <div className="status-alert__text">{this.props.alert.message}</div>
           </div>
         </div>
       </div>

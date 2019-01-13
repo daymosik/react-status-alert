@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+- "node"
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+  - node_modules
+
+install:
+- "npm install"
+
+script:
+- "npm run lint"
+- "npm run test"
+- "npm run build"
+- "npm run build-docs"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: docs-dist
+  on:
+    branch: master

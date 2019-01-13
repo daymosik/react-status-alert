@@ -1,6 +1,5 @@
+import uuidv4 from 'uuid/v4'
 import statusAlertStore, { StoreActionTypes } from './status-alert-store'
-
-const uuidv4 = require('uuid/v4')
 
 export const StatusAlertService = {
   showAlert(message: string): void {

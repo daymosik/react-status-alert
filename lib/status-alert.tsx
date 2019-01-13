@@ -7,8 +7,8 @@ export interface StatusAlertState {
 }
 
 export class StatusAlert extends React.Component<{}, StatusAlertState> {
-  private unsubscribeStore: Unsubscriber = () => {
-  }
+  // TODO: Unsubscriber
+  private unsubscribeStore: any
 
   public constructor(props: any) {
     super(props)

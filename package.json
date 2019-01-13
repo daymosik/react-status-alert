@@ -1,6 +1,6 @@
 {
   "name": "@daymosik/react-status-alert",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "description": "Status alert component for React",
   "keywords": [
     "react-component",
@@ -10,6 +10,8 @@
     "status",
     "alert"
   ],
+  "homepage": "https://github.com/daymosik/react-status-alert",
+  "repository": "github:daymosik/react-status-alert",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -18,23 +20,29 @@
     "copy": "cp ./lib/status-alert.css ./dist/",
     "lint": "tslint -p . -t codeFrame",
     "test": "jest --coverage",
-    "clean": "rimraf ./dist",
-    "clean-docs": "rimraf ./docs-dist",
+    "build-all": "npm run build && npm run build-docs",
     "build-docs": "npm run clean-docs && npm run parcel-build",
     "parcel-build": "parcel build docs/index.html --public-url . --out-dir ./docs-dist",
+    "parcel-serve": "parcel serve docs/index.html -d ./serve",
+    "parcel-watch": "parcel watch docs/index.html -d ./watch",
     "predeploy": "npm run build-docs",
-    "deploy": "gh-pages -d docs-dist"
+    "deploy": "gh-pages -d docs-dist",
+    "clean": "rimraf ./dist",
+    "clean-docs": "rimraf ./docs-dist"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/uuid": "^3.4.4",
+    "flexboxgrid": "^6.3.1",
     "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "parcel-bundler": "^1.11.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
     "rimraf": "^2.6.3",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.1",

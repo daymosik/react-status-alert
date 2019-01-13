@@ -10,7 +10,7 @@ export interface StatusAlertContainerProps {
 export class StatusAlertContainer extends React.PureComponent<StatusAlertContainerProps, {}> {
   public render() {
     return (
-      <div className="status-alert">
+      <div className="status-alerts-wrapper">
         {this.props.alerts.map((alert) => (
           <StatusAlertItem alert={alert} key={alert.id} removeAlert={this.removeAlert}/>
         ))}

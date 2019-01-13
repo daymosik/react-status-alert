@@ -9,7 +9,9 @@
     "object-literal-sort-keys": false,
     "jsx-no-multiline-js": false,
     "max-classes-per-file": [true, 10],
-    "no-console": false
+    "no-console": false,
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false
   },
   "rulesDirectory": []
 }

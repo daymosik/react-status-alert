@@ -39,12 +39,12 @@ const createStatusAlertStore = (reducer: Reducer, initialState: StoreState) => {
   const getState = (): StoreState => state
   const dispatch = (action: StoreAction) => {
     state = reducer(state, action)
-    listeners.forEach(listener => listener())
+    listeners.forEach((listener) => listener())
   }
   const subscribe = (listener: Listener): Unsubscriber => {
     listeners.push(listener)
     return () => {
-      listeners = listeners.filter(l => l !== listener)
+      listeners = listeners.filter((l) => l !== listener)
     }
   }
   return { getState, dispatch, subscribe }
@@ -55,9 +55,9 @@ const statusAlertReducer = (state: StoreState = [], action: StoreAction): StoreS
     case StoreActionTypes.AddAlert:
       return [...state, action.payload]
     case StoreActionTypes.RemoveAlert:
-      let elemToRemoveArray = state.filter(item => item.id === action.payload)
+      const elemToRemoveArray = state.filter((item) => item.id === action.payload)
       if (Array.isArray(elemToRemoveArray)) {
-        let elemToRemoveIndex = state.indexOf(elemToRemoveArray[0])
+        const elemToRemoveIndex = state.indexOf(elemToRemoveArray[0])
         return [...state.slice(0, elemToRemoveIndex), ...state.slice(elemToRemoveIndex + 1)]
       }
       return state
