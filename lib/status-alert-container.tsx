@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { StatusAlertItem } from './status-alert-item'
-import { StatusAlertService } from './status-alert-service'
 import { Alert } from './status-alert-store'
 
 export interface StatusAlertContainerProps {
@@ -11,12 +10,8 @@ export class StatusAlertContainer extends React.PureComponent<StatusAlertContain
   public render() {
     return (
       <div className="status-alerts-wrapper">
-        {this.props.alerts.map((alert) => (
-          <StatusAlertItem alert={alert} key={alert.id} removeAlert={this.removeAlert}/>
-        ))}
+        {this.props.alerts.map((alert) => <StatusAlertItem alert={alert} key={alert.id}/>)}
       </div>
     )
   }
-
-  private removeAlert = (alertId: string): void => StatusAlertService.removeAlert(alertId)
 }

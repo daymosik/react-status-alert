@@ -1,9 +1,9 @@
 import { default as React, RefObject } from 'react'
+import { StatusAlertService } from './status-alert-service'
 import { Alert } from './status-alert-store'
 
 export interface StatusAlertItemProps {
   alert: Alert
-  removeAlert: (alertId: string) => void
 }
 
 export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {}> {
@@ -64,7 +64,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
   private removeAlertCallbackSubmit = () => {
     if (this.statusAlert.current) {
       this.statusAlert.current.classList.remove('is-hidden')
-      this.props.removeAlert(this.props.alert.id)
+      StatusAlertService.removeAlert(this.props.alert.id)
     }
   }
 }
