@@ -22,7 +22,6 @@ export class StatusAlert extends React.Component<{}, StatusAlertState> {
     const addToStore = () => {
       requestAnimationFrame(() => requestAnimationFrame(() => {
         const state = statusAlertStore.getState()
-        console.log(state)
         this.setState({ alerts: state })
       }))
     }
