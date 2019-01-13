@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { default as React, RefObject } from 'react'
 import { Alert } from './status-alert-store'
 
 export interface StatusAlertItemProps {
@@ -7,9 +7,21 @@ export interface StatusAlertItemProps {
 }
 
 export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {}> {
+  private statusAlert: RefObject<HTMLDivElement>
+
+  public constructor(props: any) {
+    super(props)
+
+    this.statusAlert = React.createRef()
+  }
+
+  public componentDidMount() {
+    this.showAlert()
+  }
+
   public render() {
     return (
-      <div className="status-alert">
+      <div className="status-alert is-transparent is-hidden" ref={this.statusAlert}>
         <div className="status-alert__padding-wrapper">
           <div className="status-alert__box is-green-success">
             <div className="status-alert__icon-on-right-holder">
@@ -25,5 +37,34 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     )
   }
 
-  private removeAlert = (): void => this.props.removeAlert(this.props.alert.id)
+  private showAlert = (): void => {
+    if (this.statusAlert.current) {
+      this.statusAlert.current.classList.remove('is-hidden')
+      setTimeout(() => (
+        this.statusAlert.current && this.statusAlert.current.classList.remove('is-transparent')
+      ))
+    }
+  }
+
+  private removeAlert = (): void => {
+    if (this.statusAlert.current) {
+      this.statusAlert.current.classList.add('is-transparent')
+      this.statusAlert.current.addEventListener('transitionend', this.removeAlertTransitionSubmit)
+      setTimeout(this.removeAlertCallbackSubmit, 1000)
+    }
+  }
+
+  private removeAlertTransitionSubmit = (): void => {
+    if (this.statusAlert.current) {
+      this.statusAlert.current.removeEventListener('transitionend', this.removeAlertTransitionSubmit)
+      this.removeAlertCallbackSubmit()
+    }
+  }
+
+  private removeAlertCallbackSubmit = () => {
+    if (this.statusAlert.current) {
+      this.statusAlert.current.classList.remove('is-hidden')
+      this.props.removeAlert(this.props.alert.id)
+    }
+  }
 }

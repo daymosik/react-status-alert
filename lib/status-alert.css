@@ -3,6 +3,8 @@
     z-index: 3;
     width: 100%;
     height: 0px;
+    left: 0;
+    top: 0;
 }
 
 .status-alert {

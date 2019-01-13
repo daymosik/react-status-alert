@@ -21,10 +21,16 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
   public render() {
     return (
       <div className="container">
+
         <StatusAlert/>
 
-        <input type="text" value={this.state.inputText} onChange={this.handleInput}/>
-        <button onClick={this.showAlert}>Show alert</button>
+        <div className="row">
+          <div className="col-xs center-xs">
+            <h1>React status alert</h1>
+            <input type="text" value={this.state.inputText} onChange={this.handleInput}/>
+            <button onClick={this.showAlert}>Show alert</button>
+          </div>
+        </div>
       </div>
     )
   }
