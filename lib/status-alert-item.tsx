@@ -7,6 +7,7 @@ export interface Alert {
   id: string
   message: string
   type: AlertType
+  flashing?: boolean
 }
 
 export interface StatusAlertItemProps {
@@ -28,7 +29,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
 
   public render() {
     return (
-      <div className="status-alert is-transparent is-hidden" ref={this.statusAlert}>
+      <div className="status-alert is-transparent" ref={this.statusAlert}>
         <div className="status-alert__padding-wrapper">
           <div className={`status-alert__box ${this.boxClassName}`}>
             <div className="status-alert__icon-on-right-holder">
@@ -45,12 +46,9 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
   }
 
   private showAlert = (): void => {
-    if (this.statusAlert.current) {
-      this.statusAlert.current.classList.remove('is-hidden')
-      setTimeout(() => (
-        this.statusAlert.current && this.statusAlert.current.classList.remove('is-transparent')
-      ))
-    }
+    setTimeout(() => (
+      this.statusAlert.current && this.statusAlert.current.classList.remove('is-transparent')
+    ))
   }
 
   private removeAlert = (): void => {
@@ -68,11 +66,8 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     }
   }
 
-  private removeAlertCallbackSubmit = () => {
-    if (this.statusAlert.current) {
-      this.statusAlert.current.classList.remove('is-hidden')
-      StatusAlertService.removeAlert(this.props.alert.id)
-    }
+  private removeAlertCallbackSubmit = (): void => {
+    StatusAlertService.removeAlert(this.props.alert.id)
   }
 
   get boxClassName(): string {
