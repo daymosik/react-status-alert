@@ -1,7 +1,7 @@
 # React Status Alert (under construction)
 
 ![alt text](https://img.shields.io/badge/status-under%20construction-red.svg)
-[![npm version](https://img.shields.io/npm/v/react-status-alert.svg)](https://www.npmjs.com/package/@daymosik/react-status-alert)
+[![npm version](https://img.shields.io/npm/v/react-status-alert.svg)](https://www.npmjs.com/package/react-status-alert)
 [![Build Status](https://travis-ci.com/daymosik/react-status-alert.svg?branch=master)](https://travis-ci.com/daymosik/react-status-alert)
 [![BCH compliance](https://bettercodehub.com/edge/badge/daymosik/react-status-alert?branch=master)](https://bettercodehub.com/)
 [![codecov](https://codecov.io/gh/daymosik/react-status-alert/branch/master/graph/badge.svg)](https://codecov.io/gh/daymosik/react-status-alert)

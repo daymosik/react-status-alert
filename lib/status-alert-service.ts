@@ -23,6 +23,10 @@ export class StatusAlertServiceClass {
     this.showAlert(message, 'info')
   }
 
+  public showWarning(message: string): void {
+    this.showAlert(message, 'warning')
+  }
+
   public removeAlert(alertId: string): void {
     statusAlertStore.dispatch({
       type: StoreActionTypes.RemoveAlert,

@@ -57,6 +57,14 @@
     background-color: #ff3b20;
 }
 
+.status-alert__box.is-blue-info {
+    background-color: #abbdd9;
+}
+
+.status-alert__box.is-orange-warning {
+    background-color: #f90;
+}
+
 .status-alert__icon-holder {
     position: absolute;
     left: 0px;

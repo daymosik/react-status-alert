@@ -1,7 +1,7 @@
 import { default as React, RefObject } from 'react'
 import { StatusAlertService } from './status-alert-service'
 
-export type AlertType = 'success' | 'error' | 'info'
+export type AlertType = 'success' | 'error' | 'info' | 'warning'
 
 export interface Alert {
   id: string
@@ -76,8 +76,12 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
         return 'is-green-success'
       case 'error':
         return 'is-red-error'
+      case 'info':
+        return 'is-blue-info'
+      case 'warning':
+        return 'is-orange-warning'
       default:
-        return 'is-green-success'
+        return 'is-blue-info'
     }
   }
 }
