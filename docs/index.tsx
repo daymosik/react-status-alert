@@ -26,11 +26,7 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
             <h1>React status alert</h1>
           </div>
         </div>
-        <div className="row">
-          <div className="col-xs center-xs">
-            <input type="text" value={this.state.inputText} onChange={this.handleInput}/>
-          </div>
-        </div>
+
         <div className="row">
           <div className="col-xs center-xs">
             <button onClick={this.showSuccess} style={{ ...this.buttonStyle, backgroundColor: '#107c2e' }}>
@@ -47,26 +43,62 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
             </button>
           </div>
         </div>
+
+        <hr style={this.separatorStyle}/>
+
+        <div className="row">
+          <div className="col-xs center-xs">
+            <input type="text" value={this.state.inputText} onChange={this.handleInput}/>
+            <button onClick={this.showTextAlert} style={{ ...this.buttonStyle }}>
+              Show alert
+            </button>
+          </div>
+        </div>
+
+        <hr style={this.separatorStyle}/>
+
+        <div className="row">
+          <div className="col-xs center-xs">
+            <button onClick={this.showHtmlAlert} style={{ ...this.buttonStyle }}>
+              Show HTML alert
+            </button>
+          </div>
+        </div>
+
       </div>
     )
+  }
+
+  public showHtmlAlert = (): void => {
+    StatusAlertService.showInfo(<div>HTML alert with <a href="">link</a></div>)
   }
 
   public handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({ inputText: event.target.value })
   }
 
-  public showSuccess = (): void => StatusAlertService.showSuccess(this.state.inputText || 'Default success alert!')
+  public showTextAlert = () => StatusAlertService.showInfo(this.state.inputText || 'Custom alert text')
 
-  public showError = (): void => StatusAlertService.showError(this.state.inputText || 'Default error alert!')
+  public showSuccess = (): void => StatusAlertService.showSuccess('Success!')
 
-  public showInfo = (): void => StatusAlertService.showInfo(this.state.inputText || 'Default info alert!')
+  public showError = (): void => StatusAlertService.showError('Oops... Something went wrong.')
 
-  public showWarning = (): void => StatusAlertService.showWarning(this.state.inputText || 'Default warning alert!')
+  public showInfo = (): void => StatusAlertService.showInfo('Notification!')
+
+  public showWarning = (): void => StatusAlertService.showWarning('Warning!')
 
   get buttonStyle() {
     return {
       color: '#fff',
       padding: '5px 10px',
+      margin: '0px 5px',
+      backgroundColor: '#3231FF',
+    }
+  }
+
+  get separatorStyle() {
+    return {
+      margin: '10px 0px',
     }
   }
 }
