@@ -1,6 +1,6 @@
 {
   "name": "react-status-alert",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Status alert component for React",
   "keywords": [
     "react-component",
@@ -40,13 +40,13 @@
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/uuid": "^3.4.4",
-    "flexboxgrid": "^6.3.1",
     "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "parcel-bundler": "^1.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "rimraf": "^2.6.3",
+    "sass": "^1.16.0",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.1",
     "tslint-react": "^3.6.0",

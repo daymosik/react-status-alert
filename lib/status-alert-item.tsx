@@ -14,7 +14,7 @@ export interface AlertOptions {
 }
 
 export const defaultAlertOptions: AlertOptions = {
-  autoHide: true,
+  autoHide: false,
   autoHideTime: 3000,
   withIcon: true,
   withCloseIcon: true,
