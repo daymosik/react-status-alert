@@ -20,14 +20,14 @@ export class StatusAlert extends React.Component<{}, StatusAlertState> {
   }
 
   public componentDidMount() {
-    this.unsubscribeStore = statusAlertStore.subscribe(this.addToStore)
+    this.unsubscribeStore = statusAlertStore.subscribe(this.updateState)
   }
 
   public render() {
     return <StatusAlertContainer alerts={this.state.alerts}/>
   }
 
-  public addToStore = () => {
+  public updateState = () => {
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const state = statusAlertStore.getState()
       this.setState({ alerts: state })
