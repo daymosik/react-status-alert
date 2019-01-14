@@ -1,9 +1,12 @@
 import { default as React, RefObject } from 'react'
 import { StatusAlertService } from './status-alert-service'
 
+export type AlertType = 'success' | 'error' | 'info'
+
 export interface Alert {
   id: string
   message: string
+  type: AlertType
 }
 
 export interface StatusAlertItemProps {
@@ -27,7 +30,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     return (
       <div className="status-alert is-transparent is-hidden" ref={this.statusAlert}>
         <div className="status-alert__padding-wrapper">
-          <div className="status-alert__box is-green-success">
+          <div className={`status-alert__box ${this.boxClassName}`}>
             <div className="status-alert__icon-on-right-holder">
               <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
             </div>
@@ -69,6 +72,17 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     if (this.statusAlert.current) {
       this.statusAlert.current.classList.remove('is-hidden')
       StatusAlertService.removeAlert(this.props.alert.id)
+    }
+  }
+
+  get boxClassName(): string {
+    switch (this.props.alert.type) {
+      case 'success':
+        return 'is-green-success'
+      case 'error':
+        return 'is-red-error'
+      default:
+        return 'is-green-success'
     }
   }
 }
