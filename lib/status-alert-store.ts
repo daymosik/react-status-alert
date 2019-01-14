@@ -1,9 +1,6 @@
-export interface Alert {
-  id: string
-  message: string
-}
+import { Alert } from './status-alert-item'
 
-export type StoreState = any[]
+export type StoreState = Alert[]
 
 export enum StoreActionTypes {
   AddAlert = 'ADD_ALERT',

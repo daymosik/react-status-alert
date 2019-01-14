@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { StatusAlertItem } from './status-alert-item'
-import { Alert } from './status-alert-store'
+import { Alert, StatusAlertItem } from './status-alert-item'
 
 export interface StatusAlertContainerProps {
   alerts: Alert[]

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { StatusAlertContainer } from './status-alert-container'
-import statusAlertStore, { Alert, Unsubscriber } from './status-alert-store'
+import { Alert } from './status-alert-item'
+import statusAlertStore, { Unsubscriber } from './status-alert-store'
 
 export interface StatusAlertState {
   alerts: Alert[]
@@ -10,7 +11,7 @@ export class StatusAlert extends React.Component<{}, StatusAlertState> {
   // TODO: Unsubscriber
   private unsubscribeStore: any
 
-  public constructor(props: any) {
+  public constructor(props: {}) {
     super(props)
 
     this.state = {

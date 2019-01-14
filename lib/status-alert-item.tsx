@@ -1,6 +1,10 @@
 import { default as React, RefObject } from 'react'
 import { StatusAlertService } from './status-alert-service'
-import { Alert } from './status-alert-store'
+
+export interface Alert {
+  id: string
+  message: string
+}
 
 export interface StatusAlertItemProps {
   alert: Alert
@@ -9,7 +13,7 @@ export interface StatusAlertItemProps {
 export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {}> {
   private statusAlert: RefObject<HTMLDivElement>
 
-  public constructor(props: any) {
+  public constructor(props: StatusAlertItemProps) {
     super(props)
 
     this.statusAlert = React.createRef()
