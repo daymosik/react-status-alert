@@ -1,13 +1,30 @@
 import { default as React, RefObject } from 'react'
+import { IconInfo } from './icons/info-icon'
 import { StatusAlertService } from './status-alert-service'
 
 export type AlertType = 'success' | 'error' | 'info' | 'warning'
 
+export interface AlertOptions {
+  autoHide?: boolean
+  autoHideTime?: number
+  withIcon?: boolean
+  withCloseIcon?: boolean
+  color?: string
+  backgroundColor?: string
+}
+
+export const defaultAlertOptions: AlertOptions = {
+  autoHide: false,
+  autoHideTime: 3000,
+  withIcon: true,
+  withCloseIcon: true,
+}
+
 export interface Alert {
   id: string
-  message: string
+  message: JSX.Element | string
   type: AlertType
-  flashing?: boolean
+  options: AlertOptions
 }
 
 export interface StatusAlertItemProps {
@@ -25,6 +42,10 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
 
   public componentDidMount() {
     this.showAlert()
+
+    if (this.alertOptions.autoHide) {
+      setTimeout(() => this.removeAlert(), this.alertOptions.autoHideTime)
+    }
   }
 
   public render() {
@@ -32,12 +53,11 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
       <div className="status-alert is-transparent" ref={this.statusAlert}>
         <div className="status-alert__padding-wrapper">
           <div className={`status-alert__box ${this.boxClassName}`}>
+            {this.alertOptions.withCloseIcon &&
             <div className="status-alert__icon-on-right-holder">
               <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
-            </div>
-            <div className="status-alert__icon-holder">
-              <div className="status-alert__icon is-check"/>
-            </div>
+            </div>}
+            {this.alertOptions.withIcon && <div className="status-alert__icon-holder">{this.alertIcon}</div>}
             <div className="status-alert__text">{this.props.alert.message}</div>
           </div>
         </div>
@@ -76,12 +96,20 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
         return 'is-green-success'
       case 'error':
         return 'is-red-error'
-      case 'info':
-        return 'is-blue-info'
       case 'warning':
         return 'is-orange-warning'
+      case 'info':
+        return ''
       default:
-        return 'is-blue-info'
+        return ''
     }
+  }
+
+  get alertOptions(): AlertOptions {
+    return { ...defaultAlertOptions, ...this.props.alert.options }
+  }
+
+  get alertIcon(): JSX.Element {
+    return <IconInfo/>
   }
 }

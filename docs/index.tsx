@@ -33,10 +33,18 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
         </div>
         <div className="row">
           <div className="col-xs center-xs">
-            <button onClick={this.showSuccess}>Show success alert</button>
-            <button onClick={this.showError}>Show error alert</button>
-            <button onClick={this.showInfo}>Show info alert</button>
-            <button onClick={this.showInfo}>Show warning alert</button>
+            <button onClick={this.showSuccess} style={{ ...this.buttonStyle, backgroundColor: '#107c2e' }}>
+              Show success alert
+            </button>
+            <button onClick={this.showError} style={{ ...this.buttonStyle, backgroundColor: '#ff3b20' }}>
+              Show error alert
+            </button>
+            <button onClick={this.showInfo} style={{ ...this.buttonStyle, backgroundColor: '#464c55' }}>
+              Show info alert
+            </button>
+            <button onClick={this.showWarning} style={{ ...this.buttonStyle, backgroundColor: '#f90' }}>
+              Show warning alert
+            </button>
           </div>
         </div>
       </div>
@@ -54,6 +62,13 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
   public showInfo = (): void => StatusAlertService.showInfo(this.state.inputText || 'Default info alert!')
 
   public showWarning = (): void => StatusAlertService.showWarning(this.state.inputText || 'Default warning alert!')
+
+  get buttonStyle() {
+    return {
+      color: '#fff',
+      padding: '5px 10px',
+    }
+  }
 }
 
 ReactDOM.render(<DemoApp/>, document.getElementById('app'))

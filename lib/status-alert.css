@@ -57,10 +57,6 @@
     background-color: #ff3b20;
 }
 
-.status-alert__box.is-blue-info {
-    background-color: #abbdd9;
-}
-
 .status-alert__box.is-orange-warning {
     background-color: #f90;
 }
@@ -84,13 +80,7 @@
     width: 24px;
     height: 24px;
     text-align: center;
-}
-
-.status-alert__icon.is-info-icon {
-    background-image: url("https://uploads-ssl.webflow.com/5a65e0525e467c0001498b00/5a65e0525e467c0001498b67_icon-info-01.svg");
-    background-position: 50% 50%;
-    background-size: 20px;
-    background-repeat: no-repeat;
+    fill: #fff;
 }
 
 .status-alert__icon.is-close-icon {
