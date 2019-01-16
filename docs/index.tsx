@@ -33,8 +33,6 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
         <div className="wrapper">
           <h1>ReactJS Status Alert</h1>
           <p className="badges">
-            <img src="https://img.shields.io/badge/status-under%20construction-red.svg" className="badge"/>
-
             <a href="https://npmjs.org/package/react-status-alert">
               <img src="https://img.shields.io/npm/v/react-status-alert.svg" className="badge"/>
             </a>
