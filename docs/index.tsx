@@ -39,9 +39,6 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
             <a href="https://travis-ci.com/daymosik/react-status-alert">
               <img src="https://travis-ci.com/daymosik/react-status-alert.svg?branch=master" className="badge"/>
             </a>
-            <a href="https://david-dm.org/daymosik/react-status-alert">
-              <img src="https://david-dm.org/daymosik/react-status-alert.svg" className="badge"/>
-            </a>
             <a href="https://bettercodehub.com/">
               <img
                 src="https://bettercodehub.com/edge/badge/daymosik/react-status-alert?branch=master"

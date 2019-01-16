@@ -3,6 +3,7 @@
   "version": "0.0.9",
   "description": "Status alert component for React",
   "keywords": [
+    "react-status-alert",
     "react-component",
     "react",
     "component",
