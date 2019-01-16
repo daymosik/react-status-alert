@@ -1,4 +1,5 @@
 import { default as React, RefObject } from 'react'
+import { alertIcon, boxClassName } from './status-alert-item-helpers'
 import { StatusAlertService } from './status-alert-service'
 
 export type AlertType = 'success' | 'error' | 'info' | 'warning'
@@ -81,18 +82,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
   public removeAlertCallbackSubmit = (): void => StatusAlertService.removeAlert(this.props.alert.id)
 
   get boxClassName(): string {
-    switch (this.props.alert.type) {
-      case 'success':
-        return 'is-green-success'
-      case 'error':
-        return 'is-red-error'
-      case 'warning':
-        return 'is-orange-warning'
-      case 'info':
-        return ''
-      default:
-        return ''
-    }
+    return boxClassName(this.props.alert.type)
   }
 
   get alertOptions(): AlertOptions {
@@ -100,17 +90,6 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
   }
 
   get alertIcon(): string {
-    switch (this.props.alert.type) {
-      case 'success':
-        return 'is-check'
-      case 'error':
-        return 'is-error'
-      case 'warning':
-        return 'is-error'
-      case 'info':
-        return 'is-info-icon'
-      default:
-        return ''
-    }
+    return alertIcon(this.props.alert.type)
   }
 }
