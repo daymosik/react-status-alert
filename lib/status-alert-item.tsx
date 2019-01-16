@@ -31,7 +31,7 @@ export interface StatusAlertItemProps {
 }
 
 export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {}> {
-  private statusAlert: RefObject<HTMLDivElement>
+  public statusAlert: RefObject<HTMLDivElement>
 
   public constructor(props: StatusAlertItemProps) {
     super(props)
@@ -43,7 +43,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     this.showAlert()
 
     if (this.alertOptions.autoHide) {
-      setTimeout(() => this.removeAlert(), this.alertOptions.autoHideTime)
+      setTimeout(this.removeAlert, this.alertOptions.autoHideTime)
     }
   }
 
@@ -65,20 +65,20 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     )
   }
 
-  private showAlert = (): void => {
+  public showAlert = (): void => {
     setTimeout(() => (
       this.statusAlert.current && this.statusAlert.current.classList.remove('is-transparent')
     ))
   }
 
-  private removeAlert = (): void => {
+  public removeAlert = (): void => {
     if (this.statusAlert.current) {
       this.statusAlert.current.classList.add('is-transparent')
       setTimeout(this.removeAlertCallbackSubmit, 800)
     }
   }
 
-  private removeAlertCallbackSubmit = (): void => StatusAlertService.removeAlert(this.props.alert.id)
+  public removeAlertCallbackSubmit = (): void => StatusAlertService.removeAlert(this.props.alert.id)
 
   get boxClassName(): string {
     switch (this.props.alert.type) {

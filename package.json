@@ -36,15 +36,19 @@
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.15",
     "@types/jest": "^23.3.12",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/uuid": "^3.4.4",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "parcel-bundler": "^1.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-test-renderer": "^16.7.0",
     "rimraf": "^2.6.3",
     "sass": "^1.16.0",
     "ts-jest": "^23.10.5",
@@ -58,6 +62,9 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jsdom",
+    "setupFiles": [
+      "<rootDir>/test/test-setup.ts"
+    ],
     "collectCoverageFrom": [
       "lib/**/*.{ts,tsx}",
       "!**/node_modules/**"
