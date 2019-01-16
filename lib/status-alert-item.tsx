@@ -1,5 +1,4 @@
 import { default as React, RefObject } from 'react'
-import { IconInfo } from './icons/info-icon'
 import { StatusAlertService } from './status-alert-service'
 
 export type AlertType = 'success' | 'error' | 'info' | 'warning'
@@ -57,7 +56,8 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
             <div className="status-alert__icon-on-right-holder">
               <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
             </div>}
-            {this.alertOptions.withIcon && <div className="status-alert__icon-holder">{this.alertIcon}</div>}
+            {this.alertOptions.withIcon &&
+            <div className="status-alert__icon-holder"><div className={`status-alert__icon ${this.alertIcon}`}/></div>}
             <div className="status-alert__text">{this.props.alert.message}</div>
           </div>
         </div>
@@ -74,21 +74,11 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
   private removeAlert = (): void => {
     if (this.statusAlert.current) {
       this.statusAlert.current.classList.add('is-transparent')
-      this.statusAlert.current.addEventListener('transitionend', this.removeAlertTransitionSubmit)
-      setTimeout(this.removeAlertCallbackSubmit, 1000)
+      setTimeout(this.removeAlertCallbackSubmit, 800)
     }
   }
 
-  private removeAlertTransitionSubmit = (): void => {
-    if (this.statusAlert.current) {
-      this.statusAlert.current.removeEventListener('transitionend', this.removeAlertTransitionSubmit)
-      this.removeAlertCallbackSubmit()
-    }
-  }
-
-  private removeAlertCallbackSubmit = (): void => {
-    StatusAlertService.removeAlert(this.props.alert.id)
-  }
+  private removeAlertCallbackSubmit = (): void => StatusAlertService.removeAlert(this.props.alert.id)
 
   get boxClassName(): string {
     switch (this.props.alert.type) {
@@ -109,7 +99,18 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     return { ...defaultAlertOptions, ...this.props.alert.options }
   }
 
-  get alertIcon(): JSX.Element {
-    return <IconInfo/>
+  get alertIcon(): string {
+    switch (this.props.alert.type) {
+      case 'success':
+        return 'is-check'
+      case 'error':
+        return 'is-error'
+      case 'warning':
+        return 'is-error'
+      case 'info':
+        return 'is-info-icon'
+      default:
+        return ''
+    }
   }
 }
