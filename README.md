@@ -8,6 +8,8 @@
 
 A simple and Typescript supported Status Alert component for React ([Demo](https://daymosik.github.io/react-status-alert/))
 
+Project inspired by [jQuery-FlashingNotifications](https://github.com/maciejsaw/jQuery-FlashingNotifications)
+
 ## Installation
 
 To install run:
