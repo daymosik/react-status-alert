@@ -1,10 +1,9 @@
-import uuidv4 from 'uuid/v4'
 import { AlertOptions, AlertType } from './status-alert-item'
 import statusAlertStore, { StoreActionTypes } from './status-alert-store'
 
 export class StatusAlertServiceClass {
   public showAlert(message: JSX.Element | string, type: AlertType, options?: AlertOptions): string {
-    const id = uuidv4()
+    const id = generateUUID()
     statusAlertStore.dispatch({
       type: StoreActionTypes.AddAlert,
       payload: {
@@ -42,3 +41,17 @@ export class StatusAlertServiceClass {
 }
 
 export const StatusAlertService = new StatusAlertServiceClass()
+
+function generateUUID(): string { // Public Domain/MIT
+  let d = new Date().getTime()
+  if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
+    d += performance.now()
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    // tslint:disable-next-line no-bitwise
+    const r = (d + Math.random() * 16) % 16 | 0
+    d = Math.floor(d / 16)
+    // tslint:disable-next-line no-bitwise
+    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+  })
+}
