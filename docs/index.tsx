@@ -55,7 +55,7 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
               />
             </a>
           </p>
-          <p>A simple and Typescript supported Status Alert component for React.</p>
+          <p>Simple React Status Alert component with Typescript support.</p>
           <h2>Installation</h2>
           <p>The package can be installed via NPM:</p>
           <p><code>npm install react-status-alert --save</code></p>

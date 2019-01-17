@@ -6,7 +6,7 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/daymosik/react-status-alert?branch=master)](https://bettercodehub.com/)
 [![codecov](https://codecov.io/gh/daymosik/react-status-alert/branch/master/graph/badge.svg)](https://codecov.io/gh/daymosik/react-status-alert)
 
-A simple and Typescript supported Status Alert component for React ([Demo](https://daymosik.github.io/react-status-alert/))
+Simple React Status Alert component with Typescript support ([Demo](https://daymosik.github.io/react-status-alert/))
 
 Project inspired by [jQuery-FlashingNotifications](https://github.com/maciejsaw/jQuery-FlashingNotifications)
 
@@ -37,7 +37,7 @@ export class ExampleApp extends React.Component {
       alertId: ''
     };
     
-    this.showAlert = this.showAlert.bind(this);
+    this.showSuccessAlert = this.showSuccessAlert.bind(this);
     this.removeAlert = this.removeAlert.bind(this);
   }
   
