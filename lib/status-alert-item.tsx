@@ -58,8 +58,10 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
               <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
             </div>}
             {this.alertOptions.withIcon &&
-            <div className="status-alert__icon-holder"><div className={`status-alert__icon ${this.alertIcon}`}/></div>}
-            <div className="status-alert__text">{this.props.alert.message}</div>
+            <div className="status-alert__icon-holder">
+              <div className={`status-alert__icon ${this.alertIcon}`}/>
+            </div>}
+            <div className="status-alert__text">{this.alertText}</div>
           </div>
         </div>
       </div>
@@ -91,5 +93,12 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
 
   get alertIcon(): string {
     return alertIcon(this.props.alert.type)
+  }
+
+  get alertText(): JSX.Element | string {
+    if (typeof this.props.alert.message === 'object' && !React.isValidElement(this.props.alert.message)) {
+      return JSON.stringify(this.props.alert.message)
+    }
+    return this.props.alert.message
   }
 }
