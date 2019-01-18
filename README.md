@@ -88,7 +88,7 @@ All options are optional
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 | autoHide | boolean | true | Auto hide alert after timeout |
-| autoHideTime | number | 3000 | Auto hide timeout in ms |
+| autoHideTime | number | 3500 | Auto hide timeout in ms |
 | withIcon | boolean | true | Show status icon |
 | withCloseIcon | boolean | true | Show close icon |
 | color | string | undefined | Text color |
