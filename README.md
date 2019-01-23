@@ -77,6 +77,8 @@ export class ExampleApp extends React.Component {
 
 ```StatusAlertService.removeAlert(alertId: string): void```
 
+```StatusAlertService.removeAllAlerts(): void```
+
 ### AlertType
 
 ```'success' | 'error' | 'info' | 'warning'```

@@ -38,6 +38,12 @@ export class StatusAlertServiceClass {
       payload: alertId,
     })
   }
+
+  public removeAllAlerts(): void {
+    statusAlertStore.dispatch({
+      type: StoreActionTypes.RemoveAllAlerts,
+    })
+  }
 }
 
 export const StatusAlertService = new StatusAlertServiceClass()
