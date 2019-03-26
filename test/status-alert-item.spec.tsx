@@ -1,6 +1,6 @@
-import { shallow, ShallowWrapper } from 'enzyme'
-import * as React from 'react'
-import { Alert, StatusAlertItem, StatusAlertItemProps } from '../lib/status-alert-item'
+import { h } from 'preact'
+import { shallow } from 'preact-render-spy'
+import { Alert, StatusAlertItem } from '../lib/status-alert-item'
 
 const alert: Alert = {
   id: '1',
@@ -9,10 +9,8 @@ const alert: Alert = {
   options: {},
 }
 
-type Wrapper = ShallowWrapper<StatusAlertItemProps, {}, StatusAlertItem>
-
 describe('CalculatorView', () => {
-  let vm: Wrapper
+  let vm: any
 
   beforeEach(() => {
     jest.useFakeTimers()
@@ -21,6 +19,6 @@ describe('CalculatorView', () => {
   })
 
   it('should render correctly', () => {
-    expect(vm.hasClass('status-alert')).toBeTruthy()
+    expect(vm.find('.status-alert')).not.toHaveLength(0)
   })
 })

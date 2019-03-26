@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { Component, h } from 'preact'
 import { StatusAlertContainer } from './status-alert-container'
 import { Alert } from './status-alert-item'
 import statusAlertStore, { Unsubscriber } from './status-alert-store'
@@ -7,7 +7,7 @@ export interface StatusAlertState {
   alerts: Alert[]
 }
 
-export class StatusAlert extends React.Component<{}, StatusAlertState> {
+export class StatusAlert extends Component<{}, StatusAlertState> {
   // TODO: Unsubscriber
   private unsubscribeStore: any
 

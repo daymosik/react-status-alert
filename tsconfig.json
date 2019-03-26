@@ -8,14 +8,24 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "rootDir": "lib",
+    "rootDirs": [
+      "lib",
+      "test",
+      "docs"
+    ],
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
-    "jsx": "react"
+    "jsx": "react",
+    "jsxFactory": "h"
   },
+  "files": [
+    "./node_modules/preact/dist/preact.d.ts"
+  ],
   "include": [
-    "lib/**/*"
+    "lib/**/*",
+    "docs/**/*",
+    "test/**/*"
   ],
   "exclude": [
     "node_modules",

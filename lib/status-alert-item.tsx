@@ -1,4 +1,4 @@
-import { default as React, RefObject } from 'react'
+import { Component, h } from 'preact'
 import { alertIcon, boxClassName } from './status-alert-item-helpers'
 import { StatusAlertService } from './status-alert-service'
 
@@ -31,13 +31,11 @@ export interface StatusAlertItemProps {
   alert: Alert
 }
 
-export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {}> {
-  public statusAlert: RefObject<HTMLDivElement>
+export class StatusAlertItem extends Component<StatusAlertItemProps, {}> {
+  public statusAlert: any
 
   public constructor(props: StatusAlertItemProps) {
     super(props)
-
-    this.statusAlert = React.createRef()
   }
 
   public componentDidMount() {
@@ -50,7 +48,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
 
   public render() {
     return (
-      <div className="status-alert is-transparent" ref={this.statusAlert}>
+      <div className="status-alert is-transparent" ref={(statusAlert) => this.statusAlert = statusAlert}>
         <div className="status-alert__padding-wrapper">
           <div className={`status-alert__box ${this.boxClassName}`}>
             {this.alertOptions.withCloseIcon &&
@@ -70,13 +68,13 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
 
   public showAlert = (): void => {
     setTimeout(() => (
-      this.statusAlert.current && this.statusAlert.current.classList.remove('is-transparent')
+      this.statusAlert && this.statusAlert.classList.remove('is-transparent')
     ))
   }
 
   public removeAlert = (): void => {
-    if (this.statusAlert.current) {
-      this.statusAlert.current.classList.add('is-transparent')
+    if (this.statusAlert) {
+      this.statusAlert.classList.add('is-transparent')
       setTimeout(this.removeAlertCallbackSubmit, 800)
     }
   }
@@ -96,7 +94,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
   }
 
   get alertText(): JSX.Element | string {
-    if (typeof this.props.alert.message === 'object' && !React.isValidElement(this.props.alert.message)) {
+    if (typeof this.props.alert.message === 'object') {
       return JSON.stringify(this.props.alert.message)
     }
     return this.props.alert.message

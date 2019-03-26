@@ -1,6 +1,6 @@
-import { shallow, ShallowWrapper } from 'enzyme'
-import * as React from 'react'
-import { StatusAlertContainer, StatusAlertContainerProps } from '../lib/status-alert-container'
+import { h } from 'preact'
+import { shallow } from 'preact-render-spy'
+import { StatusAlertContainer } from '../lib/status-alert-container'
 import { Alert } from '../lib/status-alert-item'
 
 const alerts: Alert[] = [{
@@ -15,16 +15,14 @@ const alerts: Alert[] = [{
   options: {},
 }]
 
-type Wrapper = ShallowWrapper<StatusAlertContainerProps, {}, StatusAlertContainer>
-
 describe('CalculatorView', () => {
-  let vm: Wrapper
+  let vm: any
 
   beforeEach(() => {
     vm = shallow(<StatusAlertContainer alerts={alerts}/>)
   })
 
   it('should render correctly', () => {
-    expect(vm.hasClass('status-alerts-wrapper')).toBeTruthy()
+    expect(vm.find('.status-alerts-wrapper')).not.toHaveLength(0)
   })
 })

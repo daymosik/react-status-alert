@@ -1,14 +1,13 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import StatusAlert, { StatusAlertService } from '../dist'
-import { AlertOptions } from '../dist/status-alert-item'
-import '../dist/status-alert.css'
+import { Component, h, render } from 'preact'
+import StatusAlert, { StatusAlertService } from '../lib'
+import { AlertOptions } from '../lib/status-alert-item'
+import '../lib/status-alert.css'
 
 export interface DemoAppState {
   inputText: string
 }
 
-export class DemoApp extends React.Component<{}, DemoAppState> {
+export class DemoApp extends Component<{}, DemoAppState> {
   public constructor(props: any) {
     super(props)
 
@@ -98,21 +97,21 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
     StatusAlertService.showInfo(<div>HTML alert with <a href="">link</a></div>)
   }
 
-  public handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ inputText: event.target.value })
+  public handleInput = (event: Event): void => {
+    this.setState({ inputText: (event.target as HTMLInputElement).value })
   }
 
   public showTextAlert = () => StatusAlertService.showInfo(this.state.inputText || 'Custom alert text')
 
-  public showSuccess = (): void => StatusAlertService.showSuccess('Success!', this.flashingAlertOptions)
+  public showSuccess = (): string => StatusAlertService.showSuccess('Success!', this.flashingAlertOptions)
 
-  public showError = (): void => (
+  public showError = (): string => (
     StatusAlertService.showError('Oops... Something went wrong.', this.flashingAlertOptions)
   )
 
-  public showInfo = (): void => StatusAlertService.showInfo('Notification!', this.flashingAlertOptions)
+  public showInfo = (): string => StatusAlertService.showInfo('Notification!', this.flashingAlertOptions)
 
-  public showWarning = (): void => StatusAlertService.showWarning('Warning!', this.flashingAlertOptions)
+  public showWarning = (): string => StatusAlertService.showWarning('Warning!', this.flashingAlertOptions)
 
   get buttonStyle() {
     return {
@@ -137,4 +136,4 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
   }
 }
 
-ReactDOM.render(<DemoApp/>, document.getElementById('app'))
+render(<DemoApp />, (document.querySelector('#app') as Element))

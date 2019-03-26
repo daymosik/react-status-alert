@@ -1,11 +1,11 @@
-import * as React from 'react'
+import { Component, h } from 'preact'
 import { Alert, StatusAlertItem } from './status-alert-item'
 
 export interface StatusAlertContainerProps {
   alerts: Alert[]
 }
 
-export class StatusAlertContainer extends React.PureComponent<StatusAlertContainerProps, {}> {
+export class StatusAlertContainer extends Component<StatusAlertContainerProps, {}> {
   public render() {
     return (
       <div className="status-alerts-wrapper">
