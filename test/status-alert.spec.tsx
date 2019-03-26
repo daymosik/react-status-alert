@@ -1,3 +1,4 @@
+/** @jsx h */
 import { h } from 'preact'
 import { shallow } from 'preact-render-spy'
 import { StatusAlert } from '../lib/status-alert'

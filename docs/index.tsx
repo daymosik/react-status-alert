@@ -1,3 +1,4 @@
+/** @jsx h */
 import { Component, h, render } from 'preact'
 import StatusAlert, { StatusAlertService } from '../lib'
 import { AlertOptions } from '../lib/status-alert-item'
