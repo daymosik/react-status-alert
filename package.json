@@ -1,6 +1,6 @@
 {
   "name": "preact-status-alert",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Status alert component for Preact",
   "keywords": [
     "react-status-alert",
@@ -14,8 +14,8 @@
     "status",
     "alert"
   ],
-  "homepage": "https://github.com/HiddeRpl/react-status-alert",
-  "repository": "github:HiddeRpl/react-status-alert",
+  "homepage": "https://github.com/HiddeRpl/preact-status-alert",
+  "repository": "github:HiddeRpl/preact-status-alert",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
