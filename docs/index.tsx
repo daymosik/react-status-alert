@@ -17,6 +17,7 @@ export class DemoApp extends Component<{}, DemoAppState> {
   }
 
   public render() {
+    const authorLink = 'https://github.com/daymosik/react-status-alert'
     return (
       <div>
         <StatusAlert/>
@@ -24,40 +25,19 @@ export class DemoApp extends Component<{}, DemoAppState> {
           <div className="hero__content">
             <div className="row">
               <div className="col-xs center-xs">
-                <h1 className="hero__title">ReactJS Status Alert</h1>
+                <h1 className="hero__title">Preact Status Alert</h1>
               </div>
             </div>
           </div>
         </div>
         <div className="wrapper">
-          <h1>ReactJS Status Alert</h1>
-          <p className="badges">
-            <a href="https://npmjs.org/package/react-status-alert">
-              <img src="https://img.shields.io/npm/v/react-status-alert.svg" className="badge"/>
-            </a>
-            <a href="https://travis-ci.com/daymosik/react-status-alert">
-              <img src="https://travis-ci.com/daymosik/react-status-alert.svg?branch=master" className="badge"/>
-            </a>
-            <a href="https://codebeat.co/projects/github-com-daymosik-react-status-alert-master">
-              <img src="https://codebeat.co/badges/2ca97e65-d7fa-4f72-aeea-e0f8bd17765c" className="badge"/>
-            </a>
-            <a href="https://bettercodehub.com/">
-              <img
-                src="https://bettercodehub.com/edge/badge/daymosik/react-status-alert?branch=master"
-                className="badge"
-              />
-            </a>
-            <a href="https://codecov.io/gh/daymosik/react-status-alert">
-              <img
-                src="https://codecov.io/gh/daymosik/react-status-alert/branch/master/graph/badge.svg"
-                className="badge"
-              />
-            </a>
+          <h1>Preact Status Alert</h1>
+          <p>
+            Preact Status Alert component based on <a href={authorLink}>React Status Alert</a>
           </p>
-          <p>Simple React Status Alert component with Typescript support.</p>
           <h2>Installation</h2>
           <p>The package can be installed via NPM:</p>
-          <p><code>npm install react-status-alert --save</code></p>
+          <p><code>npm install preact-status-alert --save</code></p>
         </div>
 
         <div className="wrapper">
