@@ -8,11 +8,14 @@ type Wrapper = ShallowWrapper<{}, StatusAlertState, StatusAlert>
 
 describe('CalculatorView', () => {
   let vm: Wrapper
-  let requestAnimationFrameMock: jest.Mock
+  let requestAnimationFrameMock: jest.MockInstance<number, any>
 
   beforeEach(() => {
     vm = shallow(<StatusAlert/>)
-    requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cb())
+    requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+      cb(0)
+      return 0
+    })
   })
 
   afterEach(() => {
