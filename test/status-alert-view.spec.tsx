@@ -1,17 +1,17 @@
 import { shallow, ShallowWrapper } from 'enzyme'
 import * as React from 'react'
-import { StatusAlert, StatusAlertState } from '../lib/status-alert'
+import { StatusAlertView, StatusAlertState } from '../lib/status-alert-view'
 import { StatusAlertContainer } from '../lib/status-alert-container'
 import statusAlertStore from '../lib/status-alert-store'
 
-type Wrapper = ShallowWrapper<{}, StatusAlertState, StatusAlert>
+type Wrapper = ShallowWrapper<{}, StatusAlertState, StatusAlertView>
 
-describe('CalculatorView', () => {
+describe('StatusAlertView', () => {
   let vm: Wrapper
   let requestAnimationFrameMock: jest.MockInstance<number, any>
 
   beforeEach(() => {
-    vm = shallow(<StatusAlert/>)
+    vm = shallow(<StatusAlertView/>)
     requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
       cb(0)
       return 0

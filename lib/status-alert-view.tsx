@@ -7,10 +7,11 @@ export interface StatusAlertState {
   alerts: Alert[]
 }
 
-export class StatusAlert extends React.Component<{}, StatusAlertState> {
+export class StatusAlertView extends React.Component<{}, StatusAlertState> {
   // TODO: Unsubscriber
   private unsubscribeStore: any
   private frameId: any
+  private frameId2: any
 
   public constructor(props: {}) {
     super(props)
@@ -25,9 +26,8 @@ export class StatusAlert extends React.Component<{}, StatusAlertState> {
   }
 
   public componentWillUnmount(): void {
-    if (this.frameId) {
-      window.cancelAnimationFrame(this.frameId)
-    }
+    window.cancelAnimationFrame(this.frameId)
+    window.cancelAnimationFrame(this.frameId2)
   }
 
   public render() {
@@ -35,9 +35,11 @@ export class StatusAlert extends React.Component<{}, StatusAlertState> {
   }
 
   public updateState = () => {
-    this.frameId = requestAnimationFrame(() => requestAnimationFrame(() => {
-      const state = statusAlertStore.getState()
-      this.setState({ alerts: state })
-    }))
+    this.frameId = requestAnimationFrame(() => {
+      this.frameId2 = requestAnimationFrame(() => {
+        const state = statusAlertStore.getState()
+        this.setState({ alerts: state })
+      })
+    })
   }
 }

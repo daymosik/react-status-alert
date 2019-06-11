@@ -30,7 +30,8 @@
     "predeploy": "npm run build-docs",
     "deploy": "gh-pages -d docs-dist",
     "clean": "rimraf ./dist",
-    "clean-docs": "rimraf ./docs-dist"
+    "clean-docs": "rimraf ./docs-dist",
+    "publish": "npm run all && npm version patch && npm publish"
   },
   "peerDependencies": {
     "react": "^16.8.6",
@@ -51,7 +52,7 @@
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^2.6.3",
-    "sass": "^1.20.3",
+    "sass": "^1.21.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.17.0",
     "tslint-react": "^4.0.0",

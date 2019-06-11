@@ -104,15 +104,21 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
 
   public showTextAlert = () => StatusAlertService.showInfo(this.state.inputText || 'Custom alert text')
 
-  public showSuccess = (): void => StatusAlertService.showSuccess('Success!', this.flashingAlertOptions)
+  public showSuccess = (): void => {
+    StatusAlertService.showSuccess('Success!', this.flashingAlertOptions)
+  }
 
-  public showError = (): void => (
+  public showError = (): void => {
     StatusAlertService.showError('Oops... Something went wrong.', this.flashingAlertOptions)
-  )
+  }
 
-  public showInfo = (): void => StatusAlertService.showInfo('Notification!', this.flashingAlertOptions)
+  public showInfo = (): void => {
+    StatusAlertService.showInfo('Notification!', this.flashingAlertOptions)
+  }
 
-  public showWarning = (): void => StatusAlertService.showWarning('Warning!', this.flashingAlertOptions)
+  public showWarning = (): void => {
+    StatusAlertService.showWarning('Warning!', this.flashingAlertOptions)
+  }
 
   get buttonStyle() {
     return {
