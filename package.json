@@ -31,7 +31,7 @@
     "deploy": "gh-pages -d docs-dist",
     "clean": "rimraf ./dist",
     "clean-docs": "rimraf ./docs-dist",
-    "publish": "npm run all && npm version patch && npm publish"
+    "publish-package": "npm run all && npm version patch && npm publish"
   },
   "peerDependencies": {
     "react": "^16.8.6",
