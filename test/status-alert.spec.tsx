@@ -6,12 +6,15 @@ import { StatusAlertContainer } from '../lib/status-alert-container'
 
 describe('CalculatorView', () => {
   let vm: any
-  let requestAnimationFrameMock: jest.Mock
+  let requestAnimationFrameMock: jest.MockInstance<number>
 
   beforeEach(() => {
     vm = shallow(<StatusAlert />)
     // @ts-ignore
-    requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cb())
+    requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+      cb(0)
+      return 0
+    })
   })
 
   afterEach(() => {

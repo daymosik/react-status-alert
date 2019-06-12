@@ -1,6 +1,6 @@
 {
   "name": "preact-status-alert",
-  "version": "0.0.19",
+  "version": "0.2.0",
   "description": "Status alert component for Preact",
   "keywords": [
     "react-status-alert",
@@ -33,7 +33,8 @@
     "predeploy": "npm run build-docs",
     "deploy": "gh-pages -d docs-dist",
     "clean": "rimraf ./dist",
-    "clean-docs": "rimraf ./docs-dist"
+    "clean-docs": "rimraf ./docs-dist",
+    "publish-package": "npm run all && npm version patch && npm publish"
   },
   "peerDependencies": {
     "preact": "^8.4.2"
@@ -42,17 +43,17 @@
     "@types/jest": "^23.3.12",
     "@types/uuid": "^3.4.4",
     "gh-pages": "^2.0.1",
-    "jest": "^23.6.0",
-    "parcel-bundler": "^1.11.0",
+    "jest": "^24.8.0",
+    "parcel-bundler": "^1.12.3",
     "preact": "^8.4.2",
     "preact-render-spy": "^1.3.0",
     "preact-test-utils": "^0.1.4",
     "rimraf": "^2.6.3",
-    "sass": "^1.16.0",
-    "ts-jest": "^23.10.5",
-    "tslint": "^5.12.1",
-    "tslint-react": "^3.6.0",
-    "typescript": "^3.2.2"
+    "sass": "^1.20.3",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.17.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.1"
   },
   "author": "Mikołaj Jarmuła <mikolaj_jarmula@wp.pl>",
   "license": "MIT",
