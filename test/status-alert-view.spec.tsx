@@ -1,15 +1,14 @@
 /** @jsx h */
 import { h } from 'preact'
 import { shallow } from 'preact-render-spy'
-import { StatusAlert } from '../lib/status-alert'
-import { StatusAlertContainer } from '../lib/status-alert-container'
+import { StatusAlertView } from '../lib/status-alert-view'
 
-describe('CalculatorView', () => {
+describe('StatusAlertView', () => {
   let vm: any
   let requestAnimationFrameMock: jest.MockInstance<number>
 
   beforeEach(() => {
-    vm = shallow(<StatusAlert />)
+    vm = shallow(<StatusAlertView />)
     // @ts-ignore
     requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
       cb(0)
@@ -24,14 +23,4 @@ describe('CalculatorView', () => {
   it('should render correctly', () => {
     expect(vm.find('StatusAlertContainer')).not.toHaveLength(0)
   })
-
-  // it('should updateState', () => {
-  //   const getStateSpy = jest.spyOn(statusAlertStore, 'getState')
-  //
-  //   vm.rerender()
-  //
-  //   expect(getStateSpy).toHaveBeenCalled()
-  //
-  //   getStateSpy.mockRestore()
-  // })
 })
