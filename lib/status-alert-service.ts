@@ -3,6 +3,10 @@ import statusAlertStore, { StoreActionTypes } from './status-alert-store'
 
 export class StatusAlertServiceClass {
   public showAlert(message: JSX.Element | string, type: AlertType, options?: AlertOptions): string {
+    if (options && options.removeAllBeforeShow) {
+      this.removeAllAlerts()
+    }
+
     const id = generateUUID()
     statusAlertStore.dispatch({
       type: StoreActionTypes.AddAlert,

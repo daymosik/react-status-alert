@@ -95,6 +95,7 @@ All options are optional
 | withCloseIcon | boolean | true | Show close icon |
 | color | string | undefined | Text color |
 | backgroundColor | string | undefined | Background color |
+| removeAllBeforeShow | boolean | false | Remove all alerts before showing new |
 
 ## Example
 View [demo](https://daymosik.github.io/react-status-alert/) or docs folder.

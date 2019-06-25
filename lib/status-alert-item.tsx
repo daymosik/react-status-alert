@@ -11,6 +11,7 @@ export interface AlertOptions {
   withCloseIcon?: boolean
   color?: string
   backgroundColor?: string
+  removeAllBeforeShow?: boolean
 }
 
 export const defaultAlertOptions: AlertOptions = {
@@ -18,6 +19,7 @@ export const defaultAlertOptions: AlertOptions = {
   autoHideTime: 3500,
   withIcon: true,
   withCloseIcon: true,
+  removeAllBeforeShow: false,
 }
 
 export interface Alert {
