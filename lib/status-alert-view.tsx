@@ -8,8 +8,7 @@ export interface StatusAlertState {
 }
 
 export class StatusAlertView extends Component<{}, StatusAlertState> {
-  // TODO: Unsubscriber
-  private unsubscribeStore: any
+  private unsubscribeStore: Unsubscriber
   private frameId: any
   private frameId2: any
 
@@ -19,15 +18,15 @@ export class StatusAlertView extends Component<{}, StatusAlertState> {
     this.state = {
       alerts: [],
     }
+    this.unsubscribeStore = statusAlertStore.subscribe(this.updateState)
   }
 
   public componentWillUnmount(): void {
+    if (this.unsubscribeStore) {
+      this.unsubscribeStore()
+    }
     window.cancelAnimationFrame(this.frameId)
     window.cancelAnimationFrame(this.frameId2)
-  }
-
-  public componentDidMount() {
-    this.unsubscribeStore = statusAlertStore.subscribe(this.updateState)
   }
 
   public render() {

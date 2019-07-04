@@ -69,6 +69,11 @@ export class DemoApp extends Component<{}, DemoAppState> {
             Show HTML alert
           </button>
 
+          <hr style={this.separatorStyle}/>
+
+          <button onClick={this.showSuccessWithRemove} style={{ ...this.buttonStyle }}>
+            Show success alert with removing others
+          </button>
         </div>
       </div>
     )
@@ -98,6 +103,13 @@ export class DemoApp extends Component<{}, DemoAppState> {
 
   public showWarning = (): void => {
     StatusAlertService.showWarning('Warning!', this.flashingAlertOptions)
+  }
+
+  public showSuccessWithRemove = (): void => {
+    StatusAlertService.showSuccess('Success with remove all!', {
+      ...this.flashingAlertOptions,
+      removeAllBeforeShow: true,
+    })
   }
 
   get buttonStyle() {
