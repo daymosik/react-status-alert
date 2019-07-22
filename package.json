@@ -38,11 +38,11 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.9.3",
-    "@types/jest": "^24.0.13",
-    "@types/react": "^16.8.19",
+    "@types/enzyme": "^3.10.3",
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
-    "@types/uuid": "^3.4.4",
+    "@types/uuid": "^3.4.5",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "gh-pages": "^2.0.1",
@@ -52,11 +52,11 @@
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
     "rimraf": "^2.6.3",
-    "sass": "^1.21.0",
+    "sass": "^1.22.7",
     "ts-jest": "^24.0.2",
-    "tslint": "^5.17.0",
+    "tslint": "^5.18.0",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.3"
   },
   "author": "Damian Majsner <d.majsner@gmail.com>",
   "license": "MIT",

@@ -24,7 +24,7 @@ export const defaultAlertOptions: AlertOptions = {
 
 export interface Alert {
   id: string
-  message: JSX.Element | string
+  message: JSX.Element | string | object
   type: AlertType
   options: AlertOptions
 }
@@ -70,16 +70,18 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     )
   }
 
-  public showAlert = (): void => {
-    setTimeout(() => (
-      this.statusAlert.current && this.statusAlert.current.classList.remove('is-transparent')
-    ))
+  public showAlert = async (): Promise<void> => {
+    await setTimeout(() => {
+      if (this.statusAlert.current) {
+        this.statusAlert.current.classList.remove('is-transparent')
+      }
+    })
   }
 
-  public removeAlert = (): void => {
+  public removeAlert = async (): Promise<void> => {
     if (this.statusAlert.current) {
       this.statusAlert.current.classList.add('is-transparent')
-      setTimeout(this.removeAlertCallbackSubmit, 800)
+      await setTimeout(this.removeAlertCallbackSubmit, 800)
     }
   }
 
