@@ -1,4 +1,4 @@
-import { Component, h } from 'preact'
+import { Component, h, VNode } from 'preact'
 import { alertIcon, boxClassName } from './status-alert-item-helpers'
 import { StatusAlertService } from './status-alert-service'
 
@@ -22,9 +22,11 @@ export const defaultAlertOptions: AlertOptions = {
   removeAllBeforeShow: false,
 }
 
+export type AlertMessage = JSX.Element | string | object | VNode
+
 export interface Alert {
   id: string
-  message: JSX.Element | string | object
+  message: AlertMessage
   type: AlertType
   options: AlertOptions
 }
@@ -100,8 +102,8 @@ export class StatusAlertItem extends Component<StatusAlertItemProps, {}> {
     return alertIcon(this.props.alert.type)
   }
 
-  get alertText(): JSX.Element | string {
-    if (typeof this.props.alert.message === 'object') {
+  get alertText(): AlertMessage {
+    if (typeof this.props.alert.message === 'object' && !(this.props.alert.message as VNode).nodeName) {
       return JSON.stringify(this.props.alert.message)
     }
     return this.props.alert.message
