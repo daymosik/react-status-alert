@@ -5,7 +5,7 @@ import { StatusAlertView } from '../lib/status-alert-view'
 
 describe('StatusAlertView', () => {
   let vm: any
-  let requestAnimationFrameMock: jest.MockInstance<number>
+  let requestAnimationFrameMock: jest.MockInstance<number, []>
 
   beforeEach(() => {
     vm = shallow(<StatusAlertView />)

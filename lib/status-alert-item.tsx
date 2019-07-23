@@ -24,7 +24,7 @@ export const defaultAlertOptions: AlertOptions = {
 
 export interface Alert {
   id: string
-  message: JSX.Element | string
+  message: JSX.Element | string | object
   type: AlertType
   options: AlertOptions
 }
@@ -68,19 +68,21 @@ export class StatusAlertItem extends Component<StatusAlertItemProps, {}> {
     )
   }
 
-  public showAlert = (): void => {
+  public showAlert = async (): Promise<void> => {
     if (this.statusAlert) {
       this.statusAlert.classList.add('is-transparent')
     }
-    setTimeout(() => (
-      this.statusAlert && this.statusAlert.classList.remove('is-transparent')
-    ))
+    await setTimeout(() => {
+      if (this.statusAlert) {
+        this.statusAlert.classList.remove('is-transparent')
+      }
+    })
   }
 
-  public removeAlert = (): void => {
+  public removeAlert = async (): Promise<void> => {
     if (this.statusAlert) {
       this.statusAlert.classList.add('is-transparent')
-      setTimeout(this.removeAlertCallbackSubmit, 800)
+      await setTimeout(this.removeAlertCallbackSubmit, 800)
     }
   }
 
