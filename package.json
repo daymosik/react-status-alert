@@ -1,6 +1,6 @@
 {
   "name": "preact-status-alert",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Status alert component for Preact",
   "keywords": [
     "react-status-alert",
