@@ -19,7 +19,7 @@ export const defaultAlertOptions: AlertOptions = {
   autoHideTime: 3500,
   withIcon: true,
   withCloseIcon: true,
-  removeAllBeforeShow: false,
+  removeAllBeforeShow: true,
 }
 
 export type AlertMessage = JSX.Element | string | object | VNode

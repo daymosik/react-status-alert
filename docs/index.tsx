@@ -71,8 +71,8 @@ export class DemoApp extends Component<{}, DemoAppState> {
 
           <hr style={this.separatorStyle}/>
 
-          <button onClick={this.showSuccessWithRemove} style={{ ...this.buttonStyle }}>
-            Show success alert with removing others
+          <button onClick={this.showSuccessWithNoRemove} style={{ ...this.buttonStyle }}>
+            Show success alert with not removing others
           </button>
         </div>
       </div>
@@ -105,10 +105,10 @@ export class DemoApp extends Component<{}, DemoAppState> {
     StatusAlertService.showWarning('Warning!', this.flashingAlertOptions)
   }
 
-  public showSuccessWithRemove = (): void => {
+  public showSuccessWithNoRemove = (): void => {
     StatusAlertService.showSuccess('Success with remove all!', {
       ...this.flashingAlertOptions,
-      removeAllBeforeShow: true,
+      removeAllBeforeShow: false,
     })
   }
 
@@ -131,6 +131,7 @@ export class DemoApp extends Component<{}, DemoAppState> {
     return {
       withCloseIcon: false,
       autoHide: true,
+      removeAllBeforeShow: true,
     }
   }
 }
