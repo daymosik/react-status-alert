@@ -1,8 +1,13 @@
-import { AlertOptions, AlertType } from './status-alert-item'
+import { AlertOptions, AlertType, defaultAlertOptions } from './status-alert-item'
 import statusAlertStore, { StoreActionTypes } from './status-alert-store'
 
 export class StatusAlertServiceClass {
-  public showAlert(message: JSX.Element | string, type: AlertType, options?: AlertOptions): string {
+  public showAlert(message: JSX.Element | string, type: AlertType, customOptions?: AlertOptions): string {
+    const options = {
+      ...defaultAlertOptions,
+      ...customOptions,
+    }
+
     if (options && options.removeAllBeforeShow) {
       this.removeAllAlerts()
     }
@@ -20,20 +25,20 @@ export class StatusAlertServiceClass {
     return id
   }
 
-  public showSuccess(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'success', options)
+  public showSuccess(message: JSX.Element | string, customOptions?: AlertOptions): string {
+    return this.showAlert(message, 'success', customOptions)
   }
 
-  public showError(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'error', options)
+  public showError(message: JSX.Element | string, customOptions?: AlertOptions): string {
+    return this.showAlert(message, 'error', customOptions)
   }
 
-  public showInfo(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'info', options)
+  public showInfo(message: JSX.Element | string, customOptions?: AlertOptions): string {
+    return this.showAlert(message, 'info', customOptions)
   }
 
-  public showWarning(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'warning', options)
+  public showWarning(message: JSX.Element | string, customOptions?: AlertOptions): string {
+    return this.showAlert(message, 'warning', customOptions)
   }
 
   public removeAlert(alertId: string): void {

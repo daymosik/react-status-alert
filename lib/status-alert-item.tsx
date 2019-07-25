@@ -19,7 +19,7 @@ export const defaultAlertOptions: AlertOptions = {
   autoHideTime: 3500,
   withIcon: true,
   withCloseIcon: true,
-  removeAllBeforeShow: false,
+  removeAllBeforeShow: true,
 }
 
 export interface Alert {
@@ -70,18 +70,18 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
     )
   }
 
-  public showAlert = async (): Promise<void> => {
-    await setTimeout(() => {
+  public showAlert = (): void => {
+    setTimeout(() => {
       if (this.statusAlert.current) {
         this.statusAlert.current.classList.remove('is-transparent')
       }
     })
   }
 
-  public removeAlert = async (): Promise<void> => {
+  public removeAlert = (): void => {
     if (this.statusAlert.current) {
       this.statusAlert.current.classList.add('is-transparent')
-      await setTimeout(this.removeAlertCallbackSubmit, 800)
+      setTimeout(this.removeAlertCallbackSubmit, 800)
     }
   }
 
