@@ -1,4 +1,4 @@
-import { AlertOptions, AlertType } from './status-alert-item'
+import { AlertOptions, AlertType, defaultAlertOptions } from './status-alert-item'
 import statusAlertStore, { StoreActionTypes } from './status-alert-store'
 
 export class StatusAlertServiceClass {
@@ -21,19 +21,31 @@ export class StatusAlertServiceClass {
   }
 
   public showSuccess(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'success', options)
+    return this.showAlert(message, 'success', {
+      ...defaultAlertOptions,
+      ...options,
+    })
   }
 
   public showError(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'error', options)
+    return this.showAlert(message, 'error', {
+      ...defaultAlertOptions,
+      ...options,
+    })
   }
 
   public showInfo(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'info', options)
+    return this.showAlert(message, 'info', {
+      ...defaultAlertOptions,
+      ...options,
+    })
   }
 
   public showWarning(message: JSX.Element | string, options?: AlertOptions): string {
-    return this.showAlert(message, 'warning', options)
+    return this.showAlert(message, 'warning', {
+      ...defaultAlertOptions,
+      ...options,
+    })
   }
 
   public removeAlert(alertId: string): void {

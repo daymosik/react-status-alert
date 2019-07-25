@@ -131,7 +131,6 @@ export class DemoApp extends Component<{}, DemoAppState> {
     return {
       withCloseIcon: false,
       autoHide: true,
-      removeAllBeforeShow: true,
     }
   }
 }

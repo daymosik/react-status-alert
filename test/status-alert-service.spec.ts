@@ -1,5 +1,5 @@
 import { StatusAlertService } from '../lib'
-import { AlertOptions } from '../lib/status-alert-item'
+import { AlertOptions, defaultAlertOptions } from '../lib/status-alert-item'
 import statusAlertStore from '../lib/status-alert-store'
 
 describe('status-alert-store', () => {
@@ -12,14 +12,17 @@ describe('status-alert-store', () => {
     StatusAlertService.showSuccess(message)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'success', undefined)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'success', defaultAlertOptions)
 
     showAlertSpy.mockReset()
 
     StatusAlertService.showSuccess(message, options)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'success', options)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'success', {
+      ...defaultAlertOptions,
+      ...options,
+    })
 
     showAlertSpy.mockRestore()
   })
@@ -32,14 +35,17 @@ describe('status-alert-store', () => {
     StatusAlertService.showError(message)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'error', undefined)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'error', defaultAlertOptions)
 
     showAlertSpy.mockReset()
 
     StatusAlertService.showError(message, options)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'error', options)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'error', {
+      ...defaultAlertOptions,
+      ...options,
+    })
 
     showAlertSpy.mockRestore()
   })
@@ -52,14 +58,17 @@ describe('status-alert-store', () => {
     StatusAlertService.showInfo(message)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'info', undefined)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'info', defaultAlertOptions)
 
     showAlertSpy.mockReset()
 
     StatusAlertService.showInfo(message, options)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'info', options)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'info', {
+      ...defaultAlertOptions,
+      ...options,
+    })
 
     showAlertSpy.mockRestore()
   })
@@ -72,14 +81,17 @@ describe('status-alert-store', () => {
     StatusAlertService.showWarning(message)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'warning', undefined)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'warning', defaultAlertOptions)
 
     showAlertSpy.mockReset()
 
     StatusAlertService.showWarning(message, options)
 
     expect(showAlertSpy).toHaveBeenCalled()
-    expect(showAlertSpy).toHaveBeenCalledWith(message, 'warning', options)
+    expect(showAlertSpy).toHaveBeenCalledWith(message, 'warning', {
+      ...defaultAlertOptions,
+      ...options,
+    })
 
     showAlertSpy.mockRestore()
   })
