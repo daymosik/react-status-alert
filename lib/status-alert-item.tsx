@@ -55,14 +55,16 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
       <div className="status-alert is-transparent" ref={this.statusAlert}>
         <div className="status-alert__padding-wrapper">
           <div className={`status-alert__box ${this.boxClassName}`}>
-            {this.alertOptions.withCloseIcon &&
-            <div className="status-alert__icon-on-right-holder">
-              <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
-            </div>}
-            {this.alertOptions.withIcon &&
-            <div className="status-alert__icon-holder">
-              <div className={`status-alert__icon ${this.alertIcon}`}/>
-            </div>}
+            {this.alertOptions.withCloseIcon && (
+              <div className="status-alert__icon-on-right-holder">
+                <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
+              </div>
+            )}
+            {this.alertOptions.withIcon && (
+              <div className="status-alert__icon-holder">
+                <div className={`status-alert__icon ${this.alertIcon}`}/>
+              </div>
+            )}
             <div className="status-alert__text">{this.alertText}</div>
           </div>
         </div>
