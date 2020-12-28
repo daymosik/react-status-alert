@@ -1,6 +1,6 @@
 {
   "name": "react-status-alert",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Status alert component for React",
   "keywords": [
     "react-status-alert",
@@ -16,7 +16,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "all": "npm install && npm run lint && npm run test && npm run build && npm run build-docs",
+    "all": "npm run lint && npm run test && npm run build && npm run build-docs",
     "build": "npm run clean && npm run tsc && npm run copy",
     "tsc": "tsc",
     "copy": "cp ./lib/status-alert.css ./dist/",
