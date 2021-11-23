@@ -20,7 +20,7 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
   public render() {
     return (
       <div>
-        <StatusAlert/>
+        <StatusAlert />
         <div className="hero">
           <div className="hero__content">
             <div className="row">
@@ -34,13 +34,13 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
           <h1>ReactJS Status Alert</h1>
           <p className="badges">
             <a href="https://npmjs.org/package/react-status-alert">
-              <img src="https://img.shields.io/npm/v/react-status-alert.svg" className="badge"/>
+              <img src="https://img.shields.io/npm/v/react-status-alert.svg" className="badge" />
             </a>
-            <a href="https://travis-ci.com/daymosik/react-status-alert">
-              <img src="https://travis-ci.com/daymosik/react-status-alert.svg?branch=master" className="badge"/>
+            <a href="https://github.com/daymosik/react-status-alert/actions?query=workflow%3Abuild">
+              <img src="https://github.com/daymosik/react-status-alert/workflows/build/badge.svg" className="badge" />
             </a>
             <a href="https://codebeat.co/projects/github-com-daymosik-react-status-alert-master">
-              <img src="https://codebeat.co/badges/2ca97e65-d7fa-4f72-aeea-e0f8bd17765c" className="badge"/>
+              <img src="https://codebeat.co/badges/2ca97e65-d7fa-4f72-aeea-e0f8bd17765c" className="badge" />
             </a>
             <a href="https://bettercodehub.com/">
               <img
@@ -58,7 +58,9 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
           <p>Simple React Status Alert component with Typescript support.</p>
           <h2>Installation</h2>
           <p>The package can be installed via NPM:</p>
-          <p><code>npm install react-status-alert --save</code></p>
+          <p>
+            <code>npm install react-status-alert --save</code>
+          </p>
         </div>
 
         <div className="wrapper">
@@ -76,32 +78,35 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
             Show warning alert
           </button>
 
-          <hr style={this.separatorStyle}/>
+          <hr style={this.separatorStyle} />
 
-          <input type="text" value={this.state.inputText} onChange={this.handleInput}/>
+          <input type="text" value={this.state.inputText} onChange={this.handleInput} />
           <button onClick={this.showTextAlert} style={{ ...this.buttonStyle }}>
             Show alert
           </button>
 
-          <hr style={this.separatorStyle}/>
+          <hr style={this.separatorStyle} />
 
           <button onClick={this.showHtmlAlert} style={{ ...this.buttonStyle }}>
             Show HTML alert
           </button>
 
-          <hr style={this.separatorStyle}/>
+          <hr style={this.separatorStyle} />
 
           <button onClick={this.showSuccessWithNoRemove} style={{ ...this.buttonStyle }}>
             Show success alert without removing others
           </button>
-
         </div>
       </div>
     )
   }
 
   public showHtmlAlert = (): void => {
-    StatusAlertService.showInfo(<div>HTML alert with <a href="">link</a></div>)
+    StatusAlertService.showInfo(
+      <div>
+        HTML alert with <a href="">link</a>
+      </div>,
+    )
   }
 
   public handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -156,4 +161,4 @@ export class DemoApp extends React.Component<{}, DemoAppState> {
   }
 }
 
-ReactDOM.render(<DemoApp/>, document.getElementById('app'))
+ReactDOM.render(<DemoApp />, document.getElementById('app'))
