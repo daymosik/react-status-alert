@@ -1,7 +1,7 @@
 # React Status Alert
 
 [![npm version](https://img.shields.io/npm/v/react-status-alert.svg)](https://www.npmjs.com/package/react-status-alert)
-[![Build Status](https://travis-ci.com/daymosik/react-status-alert.svg?branch=master)](https://travis-ci.com/daymosik/react-status-alert)
+[![Build Status](https://github.com/daymosik/react-status-alert/workflows/build/badge.svg)](https://github.com/daymosik/react-status-alert/actions?query=workflow%3Abuild)
 [![codebeat badge](https://codebeat.co/badges/2ca97e65-d7fa-4f72-aeea-e0f8bd17765c)](https://codebeat.co/projects/github-com-daymosik-react-status-alert-master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/daymosik/react-status-alert?branch=master)](https://bettercodehub.com/)
 [![codecov](https://codecov.io/gh/daymosik/react-status-alert/branch/master/graph/badge.svg)](https://codecov.io/gh/daymosik/react-status-alert)

@@ -54,3 +54,12 @@ jobs:
         run: codecov
         env:
           CI: true
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: docs-dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAGES_TOKEN }}
