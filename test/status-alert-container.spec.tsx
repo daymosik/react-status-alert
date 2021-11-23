@@ -3,25 +3,29 @@ import * as React from 'react'
 import { StatusAlertContainer, StatusAlertContainerProps } from '../lib/status-alert-container'
 import { Alert } from '../lib/status-alert-item'
 
-const alerts: Alert[] = [{
-  id: '1',
-  message: 'message',
-  type: 'success',
-  options: {},
-}, {
-  id: '2',
-  message: <div>message</div>,
-  type: 'info',
-  options: {},
-}]
+const alerts: Alert[] = [
+  {
+    id: '1',
+    message: 'message',
+    type: 'success',
 
-type Wrapper = ShallowWrapper<StatusAlertContainerProps, {}, StatusAlertContainer>
+    options: {},
+  },
+  {
+    id: '2',
+    message: <div>message</div>,
+    type: 'info',
+    options: {},
+  },
+]
+
+type Wrapper = ShallowWrapper<StatusAlertContainerProps, unknown, StatusAlertContainer>
 
 describe('CalculatorView', () => {
   let vm: Wrapper
 
   beforeEach(() => {
-    vm = shallow(<StatusAlertContainer alerts={alerts}/>)
+    vm = shallow(<StatusAlertContainer alerts={alerts} />)
   })
 
   it('should render correctly', () => {

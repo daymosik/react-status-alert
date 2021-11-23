@@ -33,7 +33,7 @@ export interface StatusAlertItemProps {
   alert: Alert
 }
 
-export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {}> {
+export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, unknown> {
   public statusAlert: RefObject<HTMLDivElement>
 
   public constructor(props: StatusAlertItemProps) {
@@ -57,12 +57,12 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, {
           <div className={`status-alert__box ${this.boxClassName}`}>
             {this.alertOptions.withCloseIcon && (
               <div className="status-alert__icon-on-right-holder">
-                <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
+                <div className="status-alert__icon is-close-icon" onClick={this.removeAlert} />
               </div>
             )}
             {this.alertOptions.withIcon && (
               <div className="status-alert__icon-holder">
-                <div className={`status-alert__icon ${this.alertIcon}`}/>
+                <div className={`status-alert__icon ${this.alertIcon}`} />
               </div>
             )}
             <div className="status-alert__text">{this.alertText}</div>

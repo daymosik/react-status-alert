@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * Defines the React 16 Adapter for Enzyme.
  *

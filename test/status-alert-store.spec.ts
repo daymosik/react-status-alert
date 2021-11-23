@@ -9,7 +9,6 @@ const alert: Alert = {
 }
 
 describe('status-alert-store', () => {
-
   it('should initialize', () => {
     const state = statusAlertStore.getState()
     expect(state).toEqual([])
@@ -23,6 +22,7 @@ describe('status-alert-store', () => {
     const state = statusAlertStore.getState()
     const alertFromStore = state.find((a) => a.id === alert.id)
     expect(alertFromStore).not.toBeUndefined()
+
     expect(alertFromStore).toEqual(alert)
   })
 
@@ -62,5 +62,4 @@ describe('status-alert-store', () => {
     })
     expect(mockFn).not.toHaveBeenCalled()
   })
-
 })

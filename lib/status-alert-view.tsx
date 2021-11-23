@@ -7,12 +7,12 @@ export interface StatusAlertState {
   alerts: Alert[]
 }
 
-export class StatusAlertView extends React.Component<{}, StatusAlertState> {
+export class StatusAlertView extends React.Component<unknown, StatusAlertState> {
   private unsubscribeStore: Unsubscriber
-  private frameId: any
-  private frameId2: any
+  private frameId = 0
+  private frameId2 = 0
 
-  public constructor(props: {}) {
+  public constructor(props: unknown) {
     super(props)
 
     this.state = {
@@ -31,7 +31,7 @@ export class StatusAlertView extends React.Component<{}, StatusAlertState> {
   }
 
   public render() {
-    return <StatusAlertContainer alerts={this.state.alerts}/>
+    return <StatusAlertContainer alerts={this.state.alerts} />
   }
 
   public updateState = () => {

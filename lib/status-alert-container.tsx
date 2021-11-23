@@ -5,11 +5,13 @@ export interface StatusAlertContainerProps {
   alerts: Alert[]
 }
 
-export class StatusAlertContainer extends React.PureComponent<StatusAlertContainerProps, {}> {
+export class StatusAlertContainer extends React.PureComponent<StatusAlertContainerProps, unknown> {
   public render() {
     return (
       <div className="status-alerts-wrapper">
-        {this.props.alerts.map((alert) => <StatusAlertItem alert={alert} key={alert.id}/>)}
+        {this.props.alerts.map((alert) => (
+          <StatusAlertItem alert={alert} key={alert.id} />
+        ))}
       </div>
     )
   }

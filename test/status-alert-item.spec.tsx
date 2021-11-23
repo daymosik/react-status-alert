@@ -15,7 +15,7 @@ const alert: Alert = {
   },
 }
 
-type Wrapper = ShallowWrapper<StatusAlertItemProps, {}, StatusAlertItem>
+type Wrapper = ShallowWrapper<StatusAlertItemProps, unknown, StatusAlertItem>
 
 describe('StatusAlertItem', () => {
   let vm: Wrapper
@@ -23,7 +23,7 @@ describe('StatusAlertItem', () => {
   beforeEach(() => {
     jest.useFakeTimers()
 
-    vm = shallow(<StatusAlertItem alert={alert}/>)
+    vm = shallow(<StatusAlertItem alert={alert} />)
   })
 
   it('should render correctly', () => {
@@ -35,13 +35,13 @@ describe('StatusAlertItem', () => {
 
     const alertWithObject: Alert = { ...alert, message: { test: 'test' } }
 
-    vm = shallow(<StatusAlertItem alert={alertWithObject}/>)
+    vm = shallow(<StatusAlertItem alert={alertWithObject} />)
 
     expect(vm.instance().alertText).toEqual('{"test":"test"}')
 
     const alertWithElement: Alert = { ...alert, message: <div>Test</div> }
 
-    vm = shallow(<StatusAlertItem alert={alertWithElement}/>)
+    vm = shallow(<StatusAlertItem alert={alertWithElement} />)
 
     expect(vm.instance().alertText).toEqual(<div>Test</div>)
   })
