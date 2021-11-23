@@ -6,3 +6,4 @@ docs-dist
 serve
 watch
 .idea
+.DS_Store
