@@ -1,0 +1,56 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+        env:
+          CI: true
+
+      - name: Install codecov
+        run: npm install codecov -g
+        env:
+          CI: true
+
+      - name: Lint
+        run: npm run lint
+        env:
+          CI: true
+
+      - name: Test
+        run: npm run test
+        env:
+          CI: true
+
+      - name: Build
+        run: npm run build
+        env:
+          CI: true
+
+      - name: Build docs
+        run: npm run build-docs
+        env:
+          CI: true
+
+      - name: Code coverage
+        run: codecov
+        env:
+          CI: true
