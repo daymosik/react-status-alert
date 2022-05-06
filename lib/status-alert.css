@@ -22,18 +22,18 @@
   margin-left: auto;
   padding-right: 14px;
   padding-left: 14px;
-  -webkit-transition: opacity 800ms ease, max-height 800ms ease-out, -webkit-transform 500ms ease-out;
-  transition: opacity 800ms ease, max-height 800ms ease-out, -webkit-transform 500ms ease-out;
-  transition: transform 500ms ease-out, opacity 800ms ease, max-height 800ms ease-out;
-  transition: transform 500ms ease-out, opacity 800ms ease, max-height 800ms ease-out, -webkit-transform 500ms ease-out;
+  -webkit-transition: opacity 600ms ease, max-height 600ms ease-out, -webkit-transform 600ms ease-out;
+  transition: opacity 600ms ease, max-height 600ms ease-out, -webkit-transform 600ms ease-out;
+  transition: transform 600ms ease-out, opacity 600ms ease, max-height 600ms ease-out;
+  transition: transform 600ms ease-out, opacity 600ms ease, max-height 600ms ease-out, -webkit-transform 600ms ease-out;
 }
 
 .status-alert.is-transparent {
-  max-height: 0px;
+  max-height: 0;
   opacity: 0;
-  -webkit-transform: translate(0px, -100%);
-  -ms-transform: translate(0px, -100%);
-  transform: translate(0px, -100%);
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 .status-alert.is-transparent.is-hidden {

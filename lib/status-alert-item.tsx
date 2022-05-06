@@ -83,7 +83,7 @@ export class StatusAlertItem extends React.PureComponent<StatusAlertItemProps, u
   public removeAlert = (): void => {
     if (this.statusAlert.current) {
       this.statusAlert.current.classList.add('is-transparent')
-      setTimeout(this.removeAlertCallbackSubmit, 800)
+      setTimeout(this.removeAlertCallbackSubmit, 600)
     }
   }
 
