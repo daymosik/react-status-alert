@@ -84,7 +84,7 @@ export class StatusAlertItem extends Component<StatusAlertItemProps, {}> {
   public removeAlert = async (): Promise<void> => {
     if (this.statusAlert) {
       this.statusAlert.classList.add('is-transparent')
-      await setTimeout(this.removeAlertCallbackSubmit, 800)
+      await setTimeout(this.removeAlertCallbackSubmit, 600)
     }
   }
 
