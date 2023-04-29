@@ -2,7 +2,7 @@ import { StatusAlertService } from '../lib'
 import { AlertOptions } from '../lib/status-alert-item'
 import statusAlertStore from '../lib/status-alert-store'
 
-describe('status-alert-store', () => {
+describe('StatusAlertService', () => {
   it('should showSuccess trigger showAlert', () => {
     const showAlertSpy = jest.spyOn(StatusAlertService, 'showAlert')
 

@@ -8,7 +8,7 @@ const alert: Alert = {
   options: {},
 }
 
-describe('status-alert-store', () => {
+describe('statusAlertStore', () => {
   it('should initialize', () => {
     const state = statusAlertStore.getState()
     expect(state).toEqual([])
