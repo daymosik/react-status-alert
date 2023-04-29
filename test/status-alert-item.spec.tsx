@@ -1,6 +1,7 @@
-import { shallow, ShallowWrapper } from 'enzyme'
 import * as React from 'react'
-import { Alert, StatusAlertItem, StatusAlertItemProps } from '../lib/status-alert-item'
+import { Alert, StatusAlertItem } from '../lib/status-alert-item'
+import '@testing-library/jest-dom'
+import { screen, render, RenderResult } from '@testing-library/react'
 
 const alert: Alert = {
   id: '1',
@@ -15,34 +16,28 @@ const alert: Alert = {
   },
 }
 
-type Wrapper = ShallowWrapper<StatusAlertItemProps, unknown, StatusAlertItem>
-
 describe('StatusAlertItem', () => {
-  let vm: Wrapper
+  let vm: RenderResult
 
   beforeEach(() => {
     jest.useFakeTimers()
 
-    vm = shallow(<StatusAlertItem alert={alert} />)
+    vm = render(<StatusAlertItem alert={alert} />)
   })
 
   it('should render correctly', () => {
-    expect(vm.hasClass('status-alert')).toBeTruthy()
+    expect(vm.container.getElementsByClassName('status-alert')).toHaveLength(1)
   })
 
   it('should stringify object as alert text', () => {
-    expect(vm.instance().alertText).toEqual('message')
+    expect(screen.getByText('message')).toBeInTheDocument()
 
     const alertWithObject: Alert = { ...alert, message: { test: 'test' } }
-
-    vm = shallow(<StatusAlertItem alert={alertWithObject} />)
-
-    expect(vm.instance().alertText).toEqual('{"test":"test"}')
+    vm.rerender(<StatusAlertItem alert={alertWithObject} />)
+    expect(screen.getByText('{"test":"test"}')).toBeInTheDocument()
 
     const alertWithElement: Alert = { ...alert, message: <div>Test</div> }
-
-    vm = shallow(<StatusAlertItem alert={alertWithElement} />)
-
-    expect(vm.instance().alertText).toEqual(<div>Test</div>)
+    vm.rerender(<StatusAlertItem alert={alertWithElement} />)
+    expect(screen.getByText('Test')).toBeInTheDocument()
   })
 })

@@ -1,17 +1,16 @@
-import { shallow, ShallowWrapper } from 'enzyme'
 import * as React from 'react'
-import { StatusAlertView, StatusAlertState } from '../lib/status-alert-view'
-import { StatusAlertContainer } from '../lib/status-alert-container'
+import { StatusAlertView } from '../lib/status-alert-view'
 import statusAlertStore from '../lib/status-alert-store'
-
-type Wrapper = ShallowWrapper<unknown, StatusAlertState, StatusAlertView>
+import '@testing-library/jest-dom'
+import { screen, render, RenderResult } from '@testing-library/react'
+import { StatusAlertService } from '../lib'
 
 describe('StatusAlertView', () => {
-  let vm: Wrapper
+  let vm: RenderResult
   let requestAnimationFrameMock: jest.MockInstance<number, FrameRequestCallback[]>
 
   beforeEach(() => {
-    vm = shallow(<StatusAlertView />)
+    vm = render(<StatusAlertView />)
     requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
       cb(0)
       return 0
@@ -23,15 +22,17 @@ describe('StatusAlertView', () => {
   })
 
   it('should render correctly', () => {
-    expect(vm.contains(<StatusAlertContainer alerts={[]} />)).toBeTruthy()
+    expect(vm.container.getElementsByClassName('status-alerts-wrapper')).toHaveLength(1)
   })
 
   it('should updateState', () => {
     const getStateSpy = jest.spyOn(statusAlertStore, 'getState')
 
-    vm.instance().updateState()
+    const message = 'test message'
+    StatusAlertService.showSuccess(message)
 
     expect(getStateSpy).toHaveBeenCalled()
+    expect(screen.getByText(message)).toBeInTheDocument()
 
     getStateSpy.mockRestore()
   })
