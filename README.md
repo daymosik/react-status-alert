@@ -29,6 +29,58 @@ import React from 'react'
 import StatusAlert, { StatusAlertService } from 'react-status-alert'
 import 'react-status-alert/dist/status-alert.css'
 
+function ExampleApp() {
+  const showSuccessAlert = (): void => {
+    StatusAlertService.showSuccess('Default success alert!');
+  }
+  
+  return (
+    <div>
+      <StatusAlert/>
+        
+      <button onClick={showSuccessAlert}>Show success alert</button>
+    </div>
+  )
+}
+```
+
+More complex usage:
+
+```js
+import React from 'react'
+import StatusAlert, { StatusAlertService } from 'react-status-alert'
+import 'react-status-alert/dist/status-alert.css'
+
+function ExampleApp() {
+  const [alertId, setAlertId] = useState<string>('')
+  
+  const showSuccessAlert = (): void => {
+    const alertId = StatusAlertService.showSuccess('Default success alert!');
+    setAlertId(alertId)
+  }
+  
+  const removeAlert = (): void => {
+    StatusAlertService.removeAlert(this.state.alertId);
+  }
+  
+  return (
+    <div>
+      <StatusAlert/>
+        
+      <button onClick={showSuccessAlert}>Show success alert</button> 
+      <button onClick={removeAlert}>Remove alert</button>
+    </div>
+  )
+}
+```
+
+The same with class component:
+
+```js
+import React from 'react'
+import StatusAlert, { StatusAlertService } from 'react-status-alert'
+import 'react-status-alert/dist/status-alert.css'
+
 export class ExampleApp extends React.Component {
   constructor(props) {
     super(props);
