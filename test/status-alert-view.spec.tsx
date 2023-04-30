@@ -2,7 +2,7 @@ import * as React from 'react'
 import { StatusAlertView } from '../lib/status-alert-view'
 import statusAlertStore from '../lib/status-alert-store'
 import '@testing-library/jest-dom'
-import { screen, render, RenderResult } from '@testing-library/react'
+import { screen, render, RenderResult, act } from '@testing-library/react'
 import { StatusAlertService } from '../lib'
 
 describe('StatusAlertView', () => {
@@ -29,8 +29,7 @@ describe('StatusAlertView', () => {
     const getStateSpy = jest.spyOn(statusAlertStore, 'getState')
 
     const message = 'test message'
-    StatusAlertService.showSuccess(message)
-
+    act(() => StatusAlertService.showSuccess(message))
     expect(getStateSpy).toHaveBeenCalled()
     expect(screen.getByText(message)).toBeInTheDocument()
 
