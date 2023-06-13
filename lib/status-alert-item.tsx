@@ -38,10 +38,6 @@ export interface StatusAlertItemProps {
 export class StatusAlertItem extends Component<StatusAlertItemProps, {}> {
   public statusAlert: any
 
-  public constructor(props: StatusAlertItemProps) {
-    super(props)
-  }
-
   public componentDidMount() {
     this.showAlert()
 
@@ -52,17 +48,19 @@ export class StatusAlertItem extends Component<StatusAlertItemProps, {}> {
 
   public render() {
     return (
-      <div className="status-alert is-transparent" ref={(statusAlert) => this.statusAlert = statusAlert}>
+      <div className="status-alert is-transparent" ref={(statusAlert) => (this.statusAlert = statusAlert)}>
         <div className="status-alert__padding-wrapper">
           <div className={`status-alert__box ${this.boxClassName}`}>
-            {this.alertOptions.withCloseIcon &&
-            <div className="status-alert__icon-on-right-holder">
-              <div className="status-alert__icon is-close-icon" onClick={this.removeAlert}/>
-            </div>}
-            {this.alertOptions.withIcon &&
-            <div className="status-alert__icon-holder">
-              <div className={`status-alert__icon ${this.alertIcon}`}/>
-            </div>}
+            {this.alertOptions.withCloseIcon && (
+              <div className="status-alert__icon-on-right-holder">
+                <div className="status-alert__icon is-close-icon" onClick={this.removeAlert} />
+              </div>
+            )}
+            {this.alertOptions.withIcon && (
+              <div className="status-alert__icon-holder">
+                <div className={`status-alert__icon ${this.alertIcon}`} />
+              </div>
+            )}
             <div className="status-alert__text">{this.alertText}</div>
           </div>
         </div>
@@ -70,11 +68,11 @@ export class StatusAlertItem extends Component<StatusAlertItemProps, {}> {
     )
   }
 
-  public showAlert = async (): Promise<void> => {
+  public showAlert = (): void => {
     if (this.statusAlert) {
       this.statusAlert.classList.add('is-transparent')
     }
-    await setTimeout(() => {
+    setTimeout(() => {
       if (this.statusAlert) {
         this.statusAlert.classList.remove('is-transparent')
       }

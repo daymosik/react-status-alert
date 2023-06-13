@@ -13,7 +13,8 @@
     "outDir": "./dist",
     "strict": true,
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "skipLibCheck": true
   },
   "files": [
     "./node_modules/preact/dist/preact.d.ts"

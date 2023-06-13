@@ -51,9 +51,10 @@ const statusAlertReducer = (state: StoreState = [], action: StoreAction): StoreS
   switch (action.type) {
     case StoreActionTypes.AddAlert:
       return [...state, action.payload]
-    case StoreActionTypes.RemoveAlert:
+    case StoreActionTypes.RemoveAlert: {
       const newState = state.filter((item) => item.id !== action.payload)
       return [...newState]
+    }
     case StoreActionTypes.RemoveAllAlerts:
       return []
     default:
