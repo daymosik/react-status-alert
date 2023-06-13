@@ -9,6 +9,7 @@ describe('StatusAlertView', () => {
 
   beforeEach(() => {
     vm = shallow(<StatusAlertView />)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     requestAnimationFrameMock = jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
       cb(0)

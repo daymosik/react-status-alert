@@ -30,7 +30,7 @@ export class StatusAlertView extends Component<{}, StatusAlertState> {
   }
 
   public render() {
-    return <StatusAlertContainer alerts={this.state.alerts}/>
+    return <StatusAlertContainer alerts={this.state.alerts} />
   }
 
   public updateState = () => {

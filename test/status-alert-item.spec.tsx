@@ -16,7 +16,7 @@ describe('CalculatorView', () => {
   beforeEach(() => {
     jest.useFakeTimers()
 
-    vm = shallow(<StatusAlertItem alert={alert}/>)
+    vm = shallow(<StatusAlertItem alert={alert} />)
   })
 
   it('should render correctly', () => {

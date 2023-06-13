@@ -3,11 +3,10 @@ import { AlertOptions, defaultAlertOptions } from '../lib/status-alert-item'
 import statusAlertStore from '../lib/status-alert-store'
 
 describe('status-alert-store', () => {
-
   it('should showSuccess trigger showAlert', () => {
     const showAlertSpy = jest.spyOn(StatusAlertService, 'showAlert')
 
-    const message: string = 'test message'
+    const message = 'test message'
     const options: AlertOptions = { autoHide: true }
     StatusAlertService.showSuccess(message)
 
@@ -30,7 +29,7 @@ describe('status-alert-store', () => {
   it('should showError trigger showAlert', () => {
     const showAlertSpy = jest.spyOn(StatusAlertService, 'showAlert')
 
-    const message: string = 'test message'
+    const message = 'test message'
     const options: AlertOptions = { autoHide: true }
     StatusAlertService.showError(message)
 
@@ -53,7 +52,7 @@ describe('status-alert-store', () => {
   it('should showInfo trigger showAlert', () => {
     const showAlertSpy = jest.spyOn(StatusAlertService, 'showAlert')
 
-    const message: string = 'test message'
+    const message = 'test message'
     const options: AlertOptions = { autoHide: true }
     StatusAlertService.showInfo(message)
 
@@ -76,7 +75,7 @@ describe('status-alert-store', () => {
   it('should showWarning trigger showAlert', () => {
     const showAlertSpy = jest.spyOn(StatusAlertService, 'showAlert')
 
-    const message: string = 'test message'
+    const message = 'test message'
     const options: AlertOptions = { autoHide: true }
     StatusAlertService.showWarning(message)
 
@@ -111,5 +110,4 @@ describe('status-alert-store', () => {
 
     dispatchSpy.mockRestore()
   })
-
 })

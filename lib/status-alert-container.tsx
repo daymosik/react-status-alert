@@ -1,16 +1,14 @@
-import { Component, h } from 'preact'
+import { h } from 'preact'
 import { Alert, StatusAlertItem } from './status-alert-item'
 
 export interface StatusAlertContainerProps {
   alerts: Alert[]
 }
 
-export class StatusAlertContainer extends Component<StatusAlertContainerProps, {}> {
-  public render() {
-    return (
-      <div className="status-alerts-wrapper">
-        {this.props.alerts.map((alert) => <StatusAlertItem alert={alert} key={alert.id}/>)}
-      </div>
-    )
-  }
-}
+export const StatusAlertContainer = (props: StatusAlertContainerProps) => (
+  <div className="status-alerts-wrapper">
+    {props.alerts.map((alert) => (
+      <StatusAlertItem alert={alert} key={alert.id} />
+    ))}
+  </div>
+)

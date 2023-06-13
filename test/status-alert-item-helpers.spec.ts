@@ -1,7 +1,6 @@
 import { alertIcon, boxClassName } from '../lib/status-alert-item-helpers'
 
 describe('status-alert-item-helpers', () => {
-
   it('should alertIcon retun correct class for item', () => {
     expect(alertIcon('success')).toEqual('is-check')
     expect(alertIcon('error')).toEqual('is-error')
@@ -15,5 +14,4 @@ describe('status-alert-item-helpers', () => {
     expect(boxClassName('info')).toEqual('')
     expect(boxClassName('warning')).toEqual('is-orange-warning')
   })
-
 })
