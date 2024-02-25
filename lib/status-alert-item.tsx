@@ -51,19 +51,17 @@ export const StatusAlertItem: React.FC<StatusAlertItemProps> = (props: StatusAle
   }
 
   const showAlert = (): void => {
-    showFrameId = requestAnimationFrame(() => {
+    showFrameId = requestAnimationFrame(() =>
       setTimeout(() => {
         statusAlert.current?.classList.remove('is-transparent')
-      })
-    })
+      }),
+    )
   }
 
   const removeAlert = (): void => {
     hideFrameId = requestAnimationFrame(() => {
-      if (statusAlert.current) {
-        statusAlert.current.classList.add('is-transparent')
-        setTimeout(removeAlertCallbackSubmit, 800)
-      }
+      statusAlert.current?.classList.add('is-transparent')
+      setTimeout(removeAlertCallbackSubmit, 800)
     })
   }
 
@@ -77,15 +75,9 @@ export const StatusAlertItem: React.FC<StatusAlertItemProps> = (props: StatusAle
     }
 
     return () => {
-      if (showFrameId) {
-        window.cancelAnimationFrame(showFrameId)
-      }
-      if (hideFrameId) {
-        window.cancelAnimationFrame(hideFrameId)
-      }
-      if (hideTimeout) {
-        clearTimeout(hideTimeout)
-      }
+      showFrameId && window.cancelAnimationFrame(showFrameId)
+      hideFrameId && window.cancelAnimationFrame(hideFrameId)
+      hideTimeout && clearTimeout(hideTimeout)
     }
   })
 
