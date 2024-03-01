@@ -79,7 +79,7 @@ export const StatusAlertItem: React.FC<StatusAlertItemProps> = (props: StatusAle
       hideFrameId && window.cancelAnimationFrame(hideFrameId)
       hideTimeout && clearTimeout(hideTimeout)
     }
-  })
+  }, [])
 
   return (
     <div className="status-alert is-transparent" ref={statusAlert}>

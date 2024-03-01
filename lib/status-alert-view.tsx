@@ -27,7 +27,7 @@ export const StatusAlertView: React.FC = () => {
       window.cancelAnimationFrame(frameId)
       window.cancelAnimationFrame(frameId2)
     }
-  })
+  }, [])
 
   return <StatusAlertContainer alerts={alerts} />
 }
