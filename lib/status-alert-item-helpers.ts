@@ -7,7 +7,7 @@ export const alertIcon = (type: AlertType): string => {
     case 'error':
       return 'is-error'
     case 'warning':
-      return 'is-error'
+      return 'is-error is-dark-error'
     case 'info':
       return 'is-info-icon'
     default:
