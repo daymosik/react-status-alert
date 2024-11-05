@@ -5,7 +5,7 @@ describe('status-alert-item-helpers', () => {
     expect(alertIcon('success')).toEqual('is-check')
     expect(alertIcon('error')).toEqual('is-error')
     expect(alertIcon('info')).toEqual('is-info-icon')
-    expect(alertIcon('warning')).toEqual('is-error')
+    expect(alertIcon('warning')).toEqual('is-error is-dark-error')
   })
 
   it('should boxClassName retun correct class for item box', () => {

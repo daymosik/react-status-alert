@@ -108,16 +108,16 @@ function DemoApp() {
 
       <div className="wrapper">
         <h1>Examples</h1>
-        <button onClick={showSuccess} style={{ ...buttonStyle, backgroundColor: '#107c2e' }}>
+        <button onClick={showSuccess} style={{ ...buttonStyle, backgroundColor: '#138500' }}>
           Show success alert
         </button>
-        <button onClick={showError} style={{ ...buttonStyle, backgroundColor: '#ff3b20' }}>
+        <button onClick={showError} style={{ ...buttonStyle, backgroundColor: '#AF0C0C' }}>
           Show error alert
         </button>
-        <button onClick={showInfo} style={{ ...buttonStyle, backgroundColor: '#464c55' }}>
+        <button onClick={showInfo} style={{ ...buttonStyle, backgroundColor: '#3F4348' }}>
           Show info alert
         </button>
-        <button onClick={showWarning} style={{ ...buttonStyle, backgroundColor: '#f90' }}>
+        <button onClick={showWarning} style={{ ...buttonStyle, backgroundColor: '#FFB500', color: '#232528' }}>
           Show warning alert
         </button>
 
