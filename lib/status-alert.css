@@ -48,21 +48,22 @@
   margin-left: auto;
   padding: 14px 60px 17px 46px;
   border-radius: 5px;
-  background-color: #464c55;
+  background-color: #3F4348;
   box-shadow: 0 15px 65px -9px rgba(46, 51, 58, .85);
   color: #fff;
 }
 
 .status-alert__box.is-green-success {
-  background-color: #107c2e;
+  background-color: #138500;
 }
 
 .status-alert__box.is-red-error {
-  background-color: #ff3b20;
+  background-color: #AF0C0C;
 }
 
 .status-alert__box.is-orange-warning {
-  background-color: #f90;
+  background-color: #FFB500;
+  color: #232528;
 }
 
 .status-alert__icon-holder {
@@ -125,6 +126,10 @@
   background-position: 50% 50%;
   background-size: 20px;
   background-repeat: no-repeat;
+}
+
+.status-alert__icon.is-dark-error {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OS44IDQzIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzIzMjUyODt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmVycm9yLWljb24td2hpdGU8L3RpdGxlPjxnIGlkPSJMYXllcl8yIiBkYXRhLW5hbWU9IkxheWVyIDIiPjxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMCw0MywyNSwwLDQ5LjgsNDNaTTI3LjE4LDI3LjE4VjE4LjA1SDIyLjYxdjkuMTNabTAsOVYzMS42NEgyMi42MVYzNi4yWiIvPjwvZz48L2c+PC9zdmc+)
 }
 
 .status-alert__icon-on-right-holder {

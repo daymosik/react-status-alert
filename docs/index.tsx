@@ -43,16 +43,16 @@ export class DemoApp extends Component<{}, DemoAppState> {
 
         <div className="wrapper">
           <h1>Examples</h1>
-          <button onClick={this.showSuccess} style={{ ...this.buttonStyle, backgroundColor: '#107c2e' }}>
+          <button onClick={this.showSuccess} style={{ ...this.buttonStyle, backgroundColor: '#138500' }}>
             Show success alert
           </button>
-          <button onClick={this.showError} style={{ ...this.buttonStyle, backgroundColor: '#ff3b20' }}>
+          <button onClick={this.showError} style={{ ...this.buttonStyle, backgroundColor: '#AF0C0C' }}>
             Show error alert
           </button>
-          <button onClick={this.showInfo} style={{ ...this.buttonStyle, backgroundColor: '#464c55' }}>
+          <button onClick={this.showInfo} style={{ ...this.buttonStyle, backgroundColor: '#3F4348' }}>
             Show info alert
           </button>
-          <button onClick={this.showWarning} style={{ ...this.buttonStyle, backgroundColor: '#f90' }}>
+          <button onClick={this.showWarning} style={{ ...this.buttonStyle, backgroundColor: '#FFB500', color: '#232528' }}>
             Show warning alert
           </button>
 
