@@ -87,7 +87,10 @@ export const StatusAlertItem: React.FC<StatusAlertItemProps> = (props: StatusAle
         <div className={`status-alert__box ${boxClassName(props.alert.type)}`}>
           {alertOptions().withCloseIcon && (
             <div className="status-alert__icon-on-right-holder">
-              <div className="status-alert__icon is-close-icon" onClick={removeAlert} />
+              <div
+                className={`status-alert__icon is-close-icon ${props.alert.type === 'warning' ? 'is-dark' : ''}`}
+                onClick={removeAlert}
+              />
             </div>
           )}
           {alertOptions().withIcon && (
