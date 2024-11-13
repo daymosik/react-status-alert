@@ -106,6 +106,10 @@
   height: 34px;
 }
 
+.status-alert__icon.is-close-icon.is-dark {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMy4wOSAzMi45OCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMyMzI1Mjg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5jbG9zZS1pY29uLXdoaXRlPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTMzLjA5LDMuMzIsMTkuODEsMTYuNDksMzMuMDksMjkuNjYsMjkuNzcsMzMsMTYuNDksMTkuODEsMy4zMiwzMywwLDI5LjY2LDEzLjE3LDE2LjQ5LDAsMy4zMiwzLjMyLDAsMTYuNDksMTMuMTcsMjkuNzcsMFoiLz48L2c+PC9nPjwvc3ZnPg==)
+}
+
 .status-alert__icon.is-close-icon:hover {
   background-color: hsla(0, 0%, 100%, .15);
 }
